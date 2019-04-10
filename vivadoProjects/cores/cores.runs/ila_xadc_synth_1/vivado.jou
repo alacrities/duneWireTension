@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Apr 10 13:10:32 2019
+# Process ID: 10031
+# Current directory: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/ila_xadc_synth_1
+# Command line: vivado -log ila_xadc.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ila_xadc.tcl
+# Log file: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/ila_xadc_synth_1/ila_xadc.vds
+# Journal file: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/ila_xadc_synth_1/vivado.jou
+#-----------------------------------------------------------
+source ila_xadc.tcl -notrace

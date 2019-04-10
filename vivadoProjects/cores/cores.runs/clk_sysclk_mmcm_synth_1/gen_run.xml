@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="clk_sysclk_mmcm_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1554917041">
+  <File Type="VDS-TIMING-PB" Name="clk_sysclk_mmcm_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="clk_sysclk_mmcm_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="clk_sysclk_mmcm.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="clk_sysclk_mmcm_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="clk_sysclk_mmcm_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="clk_sysclk_mmcm_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="clk_sysclk_mmcm.vds"/>
+  <File Type="REPORTS-TCL" Name="clk_sysclk_mmcm_reports.tcl"/>
+  <File Type="PA-TCL" Name="clk_sysclk_mmcm.tcl"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_sysclk_mmcm">
+    <File Path="$PSRCDIR/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="clk_sysclk_mmcm"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_sysclk_mmcm">
+    <File Path="$PSRCDIR/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="clk_sysclk_mmcm"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,679 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ac",
+				"acStim_nPeriod"
+			],
+			[
+				"acs",
+				"acStim"
+			],
+			[
+				"sl",
+				"sysclk100"
+			],
+			[
+				"lat",
+				"L1A_PIPE_DATA"
+			],
+			[
+				"bcr",
+				"BCR"
+			],
+			[
+				"ST",
+				"STD_LOGIC_VECTOR"
+			],
+			[
+				"cl",
+				"CLK_MMTPP"
+			],
+			[
+				"gbt",
+				"GBT_PKT_DATA_VEC"
+			],
+			[
+				"PHAS",
+				"BX_PHASE"
+			],
+			[
+				"l1ain",
+				"L1LAT_INDEX"
+			],
+			[
+				"for",
+				"forloop\tvhdl-for-loop"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "firmware/scripts/implementation/build.tcl",
+			"settings":
+			{
+				"buffer_size": 10894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/source/hdl/top_tension_analyzer_vc707.vhd",
+			"settings":
+			{
+				"buffer_size": 6965,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/source/constraints/system.xdc",
+			"settings":
+			{
+				"buffer_size": 412,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"vb",
+				"VHDL Mode - Beautify (Buffer)"
+			],
+			[
+				"cp",
+				"VHDL Mode - Copy Ports"
+			],
+			[
+				"vc",
+				"VHDL Mode - Copy Ports"
+			],
+			[
+				"VB",
+				"VHDL Mode - Beautify (Buffer)"
+			],
+			[
+				"pi",
+				"VHDL Mode - Paste Ports as Direct Entity Instance"
+			],
+			[
+				"vi",
+				"View: Toggle Menu"
+			],
+			[
+				"vie",
+				"View: Toggle Menu"
+			],
+			[
+				"sniplib",
+				"Snippet: vhdl-ieee-libs"
+			],
+			[
+				"vhdl i",
+				"VHDL Mode - Insert Header"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/nate/projects/duneWireTension"
+	],
+	"file_history":
+	[
+		"/home/nate/.bashrc",
+		"/home/nate/projects/duneWireTension/firmware/scripts/implementation/readVc707DwaSource.tcl",
+		"/home/nate/projects/duneWireTension/firmware/source/cores/ip_horx/dsp48_add_mult_no_out_reg/doc/xbip_dsp48_macro_v3_0_changelog.txt",
+		"/home/nate/projects/duneWireTension/firmware/source/constraints/vc707_pin.xdc",
+		"/home/nate/projects/atlas/sca_extension/sources/src/user_support/scx_mem_ctrl.vhd",
+		"/home/nate/projects/atlas/sca_extension/sources/src/common/registerFile_package.vhd",
+		"/home/nate/projects/atlas/sca_extension/sources/src/scx_main/sca_extension.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/implementation/readHorxMmtpVhdl.tcl",
+		"/home/nate/projects/atlas/sca_extension/scripts/build_scx.tcl",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/common/mmtp_axi.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/simulation/tb_axi_file_io.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/common/lat_art_pipeline.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/cores/ip_horx/fifo_lat_art_pipeline/fifo_lat_art_pipeline.xci",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/implementation/readMmtpVhdl.tcl",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/packages/global_def.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/fitter/track_can_priority.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper36_workshop.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/top_mmtpp_struct.vhd",
+		"/home/nate/projects/atlas/mmtp/software/python/GBT_packets/GBT_packet_up_centers_upper_nf_0_flx",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/top_horx_felix_test.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/common/mmtp_ctrl.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/gbtDecode/gbt_decode_calc_slope.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/common/l1a_art_pipeline.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/gbtDecode/gbt_decode_priority_encode.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/simulation/user/nate/modelsim.ini",
+		"/home/nate/simlibs/xbip_dsp48_macro_v3_0_14/_info",
+		"/home/nate/projects/atlas/fifo2elink/FIFO2Elink.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper_V7_low_latency.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/implementation/readGbtLowLatency.tcl",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper36.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/gbt_code/gbtTxRx_FELIX.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/package/FELIX_gbt_package.vhd",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/implementation/build.tcl",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/gbt/gbt_code/gbt_rx_descrambler_FELIX.vhd",
+		"/home/nate/projects/atlas/mmtp/.git/MERGE_MSG",
+		"/home/nate/projects/atlas/mmtp_endroom/firmware/sources/hdl/common/l1a_art_pipeline.vhd",
+		"/home/nate/.ssh/id_rsa.pub",
+		"/home/nate/Documents/bank",
+		"/home/nate/projects/atlas/mmtp/firmware/scripts/subl",
+		"/etc/ssh/sshd_config",
+		"/home/nate/projects/atlas/mmtp/firmware/sources/hdl/top_horx.vhd",
+		"/home/nate/.config/sublime-text-3/Packages/Material Theme/Preferences.sublime-settings",
+		"/home/nate/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/etc/fstab"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"31",
+			"freqReq",
+			"),",
+			"m_axis_tvalid",
+			"clk_sysclk_mmcm",
+			"_v_",
+			"set_property PACKAGE_PIN E19 [get_ports sysclk_p]",
+			"sys",
+			"signal acStim :std_logic := '0';\nsignal acStim_periodCnt : unsigned(31 downto 0) := (others  =>  '0');\nsignal acStim_nPeriod : unsigned(31 downto 0):= (others  =>  '0');\n",
+			"acStimX200PeriodCnt",
+			"acStimPeriodCnt",
+			"nPeriodAcStim",
+			"nPeriodAcStimX200",
+			"acStimPeriodCnt",
+			"ATLAS_MMTP",
+			"TOP_VC707_DEV",
+			"USER_CLOCK_P",
+			"TOP_TENSION_ANALYZER_VC707",
+			"sources/",
+			"cdc_bitmask",
+			"cdc_bitmaskp",
+			"rx_swap",
+			"mem",
+			"cdc_bitmask",
+			"ila_art_latpipe_out",
+			"fifo_lat_art_pipeline",
+			"fifo_l1a_art_pipeline",
+			"ART_FIBER_NUMBER",
+			"fiber",
+			"ART_DATA_LAT",
+			"ART_DATA",
+			"RX_DATA_OUT",
+			"TX_DATA_IN",
+			"LAT_FIFO_WE",
+			"LAT_FIFO_EF",
+			"A 2",
+			"BCCLK40",
+			"BCR",
+			"BXID_RESET",
+			"L1A_sim",
+			"BXID_RESET_sim",
+			"L1A",
+			"BXID_RESET",
+			"BCR",
+			"L1A_sim",
+			"<= ",
+			"BXID_RESET_sim",
+			"FIFO_GBT_DOUT",
+			"LAT_FIFO_WE",
+			"BXID_PHASE",
+			"BXID_GEN",
+			"BXID_RESET_sim",
+			"BXID",
+			"BXID_RESET",
+			"BXID",
+			"ART_FIBER_NUMBER",
+			"ART_DATA_LAT"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "firmware/scripts/implementation/build.tcl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2165,
+								2165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TCL/Tcl.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "firmware/source/hdl/top_tension_analyzer_vc707.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6543,
+								6543
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "firmware/source/constraints/system.xdc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								411,
+								411
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "duneWT.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"vc707",
+				"firmware/source/constraints/vc707_pin.xdc"
+			],
+			[
+				"system",
+				"firmware/source/constraints/system.xdc"
+			],
+			[
+				"xdc",
+				"firmware/source/cores/ip_horx/dsp48_add_mult_no_out_reg/doc/xbip_dsp48_macro_v3_0_changelog.txt"
+			],
+			[
+				"mem",
+				"sources/src/user_support/scx_mem_ctrl.vhd"
+			],
+			[
+				"readh",
+				"firmware/scripts/implementation/readHorxMmtpVhdl.tcl"
+			],
+			[
+				"artpipe",
+				"firmware/sources/hdl/common/lat_art_pipeline.vhd"
+			],
+			[
+				"felixtest",
+				"firmware/sources/hdl/top_horx_felix_test.vhd"
+			],
+			[
+				"tb",
+				"firmware/sources/simulation/tb_axi_file_io.vhd"
+			],
+			[
+				"mmtpaxi",
+				"firmware/sources/hdl/common/mmtp_axi.vhd"
+			],
+			[
+				"latpi",
+				"firmware/sources/hdl/common/lat_art_pipeline.vhd"
+			],
+			[
+				"topmmtp",
+				"firmware/sources/hdl/top_mmtpp_struct.vhd"
+			],
+			[
+				"fifo_a",
+				"firmware/sources/cores/ip_horx/fifo_lat_art_pipeline/fifo_lat_art_pipeline.xci"
+			],
+			[
+				"read",
+				"firmware/scripts/implementation/readMmtpVhdl.tcl"
+			],
+			[
+				"trackpriot",
+				"firmware/sources/hdl/fitter/track_can_priority.vhd"
+			],
+			[
+				"ctrl",
+				"firmware/sources/hdl/common/mmtp_ctrl.vhd"
+			],
+			[
+				"felix wrapp",
+				"firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper36_workshop.vhd"
+			],
+			[
+				"topmm",
+				"firmware/sources/hdl/top_mmtpp_struct.vhd"
+			],
+			[
+				"latare",
+				"firmware/sources/hdl/common/lat_art_pipeline.vhd"
+			],
+			[
+				"FELIXTEST",
+				"firmware/sources/hdl/top_horx_felix_test.vhd"
+			],
+			[
+				"TB",
+				"firmware/sources/simulation/tb_axi_file_io.vhd"
+			],
+			[
+				"LATART",
+				"firmware/sources/hdl/common/lat_art_pipeline.vhd"
+			],
+			[
+				"TBA",
+				"firmware/sources/simulation/tb_axi_file_io.vhd"
+			],
+			[
+				"horxfel",
+				"firmware/sources/hdl/top_horx_felix_test.vhd"
+			],
+			[
+				"gbtpackupnf",
+				"software/python/GBT_packets/GBT_packet_up_centers_upper_nf_0_flx"
+			],
+			[
+				"mmtpc",
+				"firmware/sources/hdl/common/mmtp_ctrl.vhd"
+			],
+			[
+				"topmmt",
+				"firmware/sources/hdl/top_mmtpp_struct.vhd"
+			],
+			[
+				"tb_vhd",
+				"firmware/sources/simulation/tb_axi_file_io.vhd"
+			],
+			[
+				"MMTPCTL",
+				"firmware/sources/hdl/common/mmtp_ctrl.vhd"
+			],
+			[
+				"gbtde",
+				"firmware/sources/hdl/gbtDecode/gbt_decode_priority_encode.vhd"
+			],
+			[
+				"felix test",
+				"firmware/sources/hdl/top_horx_felix_test.vhd"
+			],
+			[
+				"readgbt",
+				"firmware/scripts/implementation/readGbtLowLatency.tcl"
+			],
+			[
+				"felixlow",
+				"firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper_V7_low_latency.vhd"
+			],
+			[
+				"readhor",
+				"firmware/scripts/implementation/readHorxMmtpVhdl.tcl"
+			],
+			[
+				"readmm",
+				"firmware/scripts/implementation/readMmtpVhdl.tcl"
+			],
+			[
+				"glo",
+				"firmware/sources/packages/global_def.vhd"
+			],
+			[
+				"global",
+				"firmware/sources/packages/global_def.vhd"
+			],
+			[
+				"globa",
+				"firmware/sources/packages/global_def.vhd"
+			],
+			[
+				"felix",
+				"firmware/sources/gbt/package/FELIX_gbt_package.vhd"
+			],
+			[
+				"felixwrapp",
+				"firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper.vhd"
+			],
+			[
+				"felixwork",
+				"firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper36_workshop.vhd"
+			],
+			[
+				"felixworkshop",
+				"firmware/sources/gbt/gbt_code/FELIX_gbt_wrapper36_workshop.vhd"
+			],
+			[
+				"felix package",
+				"firmware/sources/gbt/package/FELIX_gbt_package.vhd"
+			],
+			[
+				"gbtrxdes",
+				"firmware/sources/gbt/gbt_code/gbt_rx_descrambler_FELIX.vhd"
+			],
+			[
+				"build\t",
+				"firmware/scripts/implementation/build.tcl"
+			],
+			[
+				"glob",
+				"firmware/sources/packages/global_def.vhd"
+			],
+			[
+				"l1a",
+				"firmware/sources/hdl/common/l1a_art_pipeline.vhd"
+			],
+			[
+				"build",
+				"firmware/scripts/implementation/build.tcl"
+			],
+			[
+				"pipevhd",
+				"firmware/sources/hdl/common/l1a_art_pipeline.vhd"
+			],
+			[
+				"",
+				"firmware/sources/packages/global_def.vhd"
+			],
+			[
+				"tophor",
+				"firmware/sources/hdl/top_horx.vhd"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 314.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

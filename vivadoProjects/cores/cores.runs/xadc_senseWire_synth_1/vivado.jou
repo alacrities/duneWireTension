@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Apr 10 12:39:50 2019
+# Process ID: 7363
+# Current directory: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/xadc_senseWire_synth_1
+# Command line: vivado -log xadc_senseWire.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xadc_senseWire.tcl
+# Log file: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/xadc_senseWire_synth_1/xadc_senseWire.vds
+# Journal file: /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/xadc_senseWire_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xadc_senseWire.tcl -notrace
