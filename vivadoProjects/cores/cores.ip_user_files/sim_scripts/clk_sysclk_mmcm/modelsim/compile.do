@@ -15,8 +15,8 @@ vcom -work xpm -64 -93 \
 "/home/nate/opt/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic" "+incdir+../../../ipstatic" \
-"../../../../cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_clk_wiz.v" \
-"../../../../cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.v" \
+"../../../../../../firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_clk_wiz.v" \
+"../../../../../../firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

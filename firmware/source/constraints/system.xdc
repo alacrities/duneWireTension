@@ -1,4 +1,12 @@
 
+set_property IOSTANDARD LVCMOS18 [get_ports acStim_oddr]
+set_property PACKAGE_PIN BB21 [get_ports acStim_oddr]
+
+set_property IOSTANDARD LVCMOS18 [get_ports acStimX200_oddr]
+set_property PACKAGE_PIN BB23 [get_ports acStimX200_oddr]
+
+# lvcmos18 is selected for xadcinputs only to make it compatible with the vcco during DRC :P
+# does not change the functionality and can be anything conpatible.
 set_property IOSTANDARD LVCMOS18 [get_ports V_p]
 set_property PACKAGE_PIN AA21 [get_ports V_p]
 

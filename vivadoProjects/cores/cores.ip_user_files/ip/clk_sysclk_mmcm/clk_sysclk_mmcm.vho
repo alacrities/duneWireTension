@@ -60,6 +60,7 @@
 -- clk_out3___100.000______0.000______50.0______114.523_____97.786
 -- clk_out4___200.000______0.000______50.0______100.010_____97.786
 -- clk_out5___400.000______0.000______50.0_______87.396_____97.786
+-- clk_out6____12.500______0.000______50.0______173.990_____97.786
 --
 ------------------------------------------------------------------------------
 -- Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -78,6 +79,7 @@ port
   clk_out3          : out    std_logic;
   clk_out4          : out    std_logic;
   clk_out5          : out    std_logic;
+  clk_out6          : out    std_logic;
   -- Status and control signals
   reset             : in     std_logic;
   locked            : out    std_logic;
@@ -98,6 +100,7 @@ your_instance_name : clk_sysclk_mmcm
    clk_out3 => clk_out3,
    clk_out4 => clk_out4,
    clk_out5 => clk_out5,
+   clk_out6 => clk_out6,
   -- Status and control signals                
    reset => reset,
    locked => locked,

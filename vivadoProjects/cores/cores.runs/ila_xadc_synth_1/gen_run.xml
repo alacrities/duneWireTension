@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="ila_xadc_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1554916231">
-  <File Type="VDS-TIMING-PB" Name="ila_xadc_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="ila_xadc_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="ila_xadc.dcp"/>
-  <File Type="REPORTS-TCL" Name="ila_xadc_reports.tcl"/>
-  <File Type="PA-TCL" Name="ila_xadc.tcl"/>
-  <File Type="RDS-RDS" Name="ila_xadc.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="ila_xadc_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="ila_xadc_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="ila_xadc_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="ila_xadc_utilization_synth.rpt"/>
+  <File Type="RDS-RDS" Name="ila_xadc.vds"/>
+  <File Type="RDS-DCP" Name="ila_xadc.dcp"/>
+  <File Type="PA-TCL" Name="ila_xadc.tcl"/>
+  <File Type="REPORTS-TCL" Name="ila_xadc_reports.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_xadc">
     <File Path="$PSRCDIR/sources_1/ip/ila_xadc/ila_xadc.xci">
       <FileInfo>
@@ -36,9 +33,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

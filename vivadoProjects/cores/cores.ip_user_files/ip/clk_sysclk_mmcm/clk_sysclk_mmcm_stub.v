@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-// Date        : Wed Apr 10 13:25:52 2019
-// Host        : localhost.localdomain running 64-bit Fedora release 29 (Twenty Nine)
+// Date        : Thu Apr 11 15:48:09 2019
+// Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 // Command     : write_verilog -force -mode synth_stub
-//               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
+//               /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
 // Design      : clk_sysclk_mmcm
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7vx485tffg1761-2
@@ -14,13 +14,14 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 module clk_sysclk_mmcm(clk_out1, clk_out2, clk_out3, clk_out4, clk_out5, 
-  reset, locked, clk_in1_p, clk_in1_n)
-/* synthesis syn_black_box black_box_pad_pin="clk_out1,clk_out2,clk_out3,clk_out4,clk_out5,reset,locked,clk_in1_p,clk_in1_n" */;
+  clk_out6, reset, locked, clk_in1_p, clk_in1_n)
+/* synthesis syn_black_box black_box_pad_pin="clk_out1,clk_out2,clk_out3,clk_out4,clk_out5,clk_out6,reset,locked,clk_in1_p,clk_in1_n" */;
   output clk_out1;
   output clk_out2;
   output clk_out3;
   output clk_out4;
   output clk_out5;
+  output clk_out6;
   input reset;
   output locked;
   input clk_in1_p;

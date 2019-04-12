@@ -10,14 +10,16 @@ use UNISIM.VCOMPONENTS.all;
 
 entity top_tension_analyzer_vc707 is
   port (
-    V_n : in std_logic;
-    V_p : in std_logic;
-    Vaux0_n : in std_logic;
-    Vaux0_p : in std_logic;
-    Vaux8_n : in std_logic;
-    Vaux8_p : in std_logic;
-    sysclk_p  : in std_logic;
-    sysclk_n  : in std_logic
+    acStimX200_oddr : out std_logic := '0';
+    acStim_oddr     : out std_logic := '0';
+    V_p             : in  std_logic;
+    V_n             : in  std_logic;
+    Vaux0_n         : in  std_logic;
+    Vaux0_p         : in  std_logic;
+    Vaux8_n         : in  std_logic;
+    Vaux8_p         : in  std_logic;
+    sysclk_p        : in  std_logic;
+    sysclk_n        : in  std_logic
   );
 
 end top_tension_analyzer_vc707;
@@ -32,6 +34,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
       clk_out3 : out std_logic;
       clk_out4 : out std_logic;
       clk_out5 : out std_logic;
+      clk_out6 : out std_logic;
       -- Status and control signals
       reset     : in  std_logic;
       locked    : out std_logic;
@@ -92,15 +95,17 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal sysclk100 : std_logic := '0';
   signal sysclk200 : std_logic := '0';
   signal sysclk400 : std_logic := '0';
+  signal sysclk12_5 : std_logic := '0';
 
-  signal acStim_enable        : std_logic             := '0';
-  signal acStim               : std_logic             := '0';
-  signal acStim_periodCnt     : unsigned(27 downto 0) := (others => '0');
-  signal acStim_nPeriod       : unsigned(27 downto 0) := (others => '0');
-  signal acStimX200           : std_logic             := '0';
-  signal acStimX200_periodCnt : unsigned(27 downto 0) := (others => '0');
-  signal acStimX200_nPeriod   : unsigned(27 downto 0) := (others => '0');
-  signal freqReq              : std_logic_vector(27 downto 0) := (others => '0');
+  signal acStimX200 : std_logic := '0';
+  signal acStim     : std_logic := '0';
+
+  signal acStim_enable        : std_logic                     := '0';
+  signal acStim_periodCnt     : unsigned(31 downto 0)         := (others => '0');
+  signal acStim_nPeriod       : unsigned(31 downto 0)         := (others => '0');
+  signal acStimX200_periodCnt : unsigned(31 downto 0)         := (others => '0');
+  signal acStimX200_nPeriod   : unsigned(31 downto 0)         := (others => '0');
+  signal freqReq              : std_logic_vector(31 downto 0) := (others => '0');
 
   signal m_axis_tvalid : std_logic;
   signal m_axis_tready : std_logic;
@@ -117,6 +122,7 @@ begin
       clk_out3 => sysclk100,
       clk_out4 => sysclk200,
       clk_out5 => sysclk400,
+      clk_out6 => sysclk12_5,
       -- Status and control signals                
       reset  => '0',
       locked => open,
@@ -131,10 +137,10 @@ begin
       INIT         => '0',         -- Initial value for Q port ('1' or '0')
       SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
     port map (
-      Q  => acStim,        -- 1-bit DDR output
-      C  => sysclk400,     -- 1-bit clock input
+      Q  => acStim_oddr,   -- 1-bit DDR output
+      C  => sysclk200,     -- 1-bit clock input
       CE => acStim_enable, -- 1-bit clock enable input
-      D1 => '1',
+      D1 => acStim,
       D2 => '0',
       R  => '0', -- 1-bit reset input
       S  => '0'  -- 1-bit set input
@@ -146,20 +152,21 @@ begin
       INIT         => '0',         -- Initial value for Q port ('1' or '0')
       SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
     port map (
-      Q  => acStimX200,    -- 1-bit DDR output
-      C  => sysclk400,     -- 1-bit clock input
-      CE => acStim_enable, -- 1-bit clock enable input
-      D1 => '1',
+      Q  => acStimX200_oddr, -- 1-bit DDR output
+      C  => sysclk200,       -- 1-bit clock input
+      CE => acStim_enable,   -- 1-bit clock enable input
+      D1 => acStimX200,
       D2 => '0',
       R  => '0', -- 1-bit reset input
       S  => '0'  -- 1-bit set input
     );
 
-  compute_n_periods : process (sysclk25)
+-- the 32 bit division takes forever
+  compute_n_periods : process (sysclk12_5)
   begin
-    if rising_edge(sysclk25) then
-      acStimX200_nPeriod <= (x"00F4240"/ unsigned(freqReq));
-      acStim_nPeriod     <= (x"BEBC200"/unsigned(freqReq));
+    if rising_edge(sysclk12_5) then
+      acStimX200_nPeriod <= (x"00F42400"/ unsigned(freqReq));
+      acStim_nPeriod     <= (x"BEBC2000"/unsigned(freqReq));
     end if;
   end process compute_n_periods;
 
@@ -172,12 +179,12 @@ begin
 
       if acStim_periodCnt = acStim_nPeriod then
         acStim           <= not acStim;
-        acStim_periodCnt <= x"0000001";
+        acStim_periodCnt <= (acStim_periodCnt'left downto 1  => '0', 0  => '1');--x"000001";
       end if;
 
       if acStimX200_periodCnt = acStimX200_nPeriod then
         acStimX200           <= not acStimX200;
-        acStimX200_periodCnt <= x"0000001";
+        acStimX200_periodCnt <=(acStimX200_periodCnt'left downto 1  => '0', 0  => '1');--x"000001";
       end if;
 
     end if;
@@ -209,24 +216,24 @@ begin
 
   ila_xadc_inst : ila_xadc
     PORT MAP (
-      clk    => sysclk25,
+      clk       => sysclk25,
       probe0(0) => m_axis_tvalid,
-      probe1 => m_axis_tdata,
-      probe2 => m_axis_tid
+      probe1    => m_axis_tdata,
+      probe2    => m_axis_tid
     );
 
   vio_ctrl_inst : vio_ctrl
     PORT MAP (
-      clk           => sysclk25,
-      probe_in0(31 downto 28)     => x"0",
-      probe_in0(27 downto 0)     => std_logic_vector(acStim_nPeriod),
-      probe_in1(31 downto 28)     => x"0",
-      probe_in1(27 downto 0)     => std_logic_vector(acStimX200_nPeriod),
-      probe_out0(31 downto 28)    => open,
-      probe_out0(27 downto 0)    => freqReq,
-      probe_out1(0) => m_axis_resetn,
-      probe_out2(0) => m_axis_tready,
-      probe_out3(0) => acStim_enable
+      clk                      => sysclk12_5,
+      --probe_in0(31 downto 24)  => x"00",
+      probe_in0(31 downto 0)   => std_logic_vector(acStim_nPeriod),
+      --probe_in1(31 downto 24)  => x"00",
+      probe_in1(31 downto 0)   => std_logic_vector(acStimX200_nPeriod),
+      --probe_out0(31 downto 24) => open,
+      probe_out0(31 downto 0)  => freqReq,
+      probe_out1(0)            => m_axis_resetn,
+      probe_out2(0)            => m_axis_tready,
+      probe_out3(0)            => acStim_enable
     );
 
 end STRUCT;

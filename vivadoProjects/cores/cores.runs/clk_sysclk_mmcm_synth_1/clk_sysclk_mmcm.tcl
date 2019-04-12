@@ -17,6 +17,13 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
+set_param tcl.collectionResultDisplayLimit 0
+set_msg_config -id {Physopt 32-662} -limit 9999
+set_msg_config -id {Physopt 32-668} -limit 9999
+set_msg_config -id {Physopt 32-702} -limit 9999
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7vx485tffg1761-2
@@ -33,10 +40,10 @@ set_property target_language VHDL [current_project]
 set_property board_part xilinx.com:vc707:part0:1.3 [current_project]
 set_property ip_output_repo /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci
-set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_board.xdc]
-set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xdc]
-set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_ooc.xdc]
+read_ip -quiet /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci
+set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_board.xdc]
+set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xdc]
+set_property used_in_implementation false [get_files -all /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -91,32 +98,32 @@ write_checkpoint -force -noxdef clk_sysclk_mmcm.dcp
 create_report "clk_sysclk_mmcm_synth_1_synth_report_utilization_0" "report_utilization -file clk_sysclk_mmcm_utilization_synth.rpt -pb clk_sysclk_mmcm_utilization_synth.pb"
 
 if { [catch {
-  file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm.dcp /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.dcp
+  file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm.dcp /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
+  write_verilog -force -mode synth_stub /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl
+  write_vhdl -force -mode synth_stub /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.v
+  write_verilog -force -mode funcsim /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -126,32 +133,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm.dcp /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.dcp
+  file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm.dcp /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_stub.v /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
+  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_stub.v /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_stub.vhdl /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl
+  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_stub.vhdl /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_sim_netlist.v /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.v
+  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_sim_netlist.v /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_sim_netlist.vhdl /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
+  file rename -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/clk_sysclk_mmcm_synth_1/clk_sysclk_mmcm_sim_netlist.vhdl /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -160,13 +167,13 @@ if { [catch {
 
 if {[file isdir /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm]} {
   catch { 
-    file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm
+    file copy -force /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.v /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm
   }
 }
 
 if {[file isdir /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm]} {
   catch { 
-    file copy -force /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm
+    file copy -force /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_stub.vhdl /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.ip_user_files/ip/clk_sysclk_mmcm
   }
 }
 file delete __synthesis_is_running__

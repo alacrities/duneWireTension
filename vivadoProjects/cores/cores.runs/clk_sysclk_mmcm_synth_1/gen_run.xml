@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="clk_sysclk_mmcm_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1554917041">
+<GenRun Id="clk_sysclk_mmcm_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1555011894">
   <File Type="VDS-TIMING-PB" Name="clk_sysclk_mmcm_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="clk_sysclk_mmcm_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="clk_sysclk_mmcm.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="clk_sysclk_mmcm_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="clk_sysclk_mmcm_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="clk_sysclk_mmcm_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="clk_sysclk_mmcm.vds"/>
   <File Type="REPORTS-TCL" Name="clk_sysclk_mmcm_reports.tcl"/>
   <File Type="PA-TCL" Name="clk_sysclk_mmcm.tcl"/>
+  <File Type="RDS-RDS" Name="clk_sysclk_mmcm.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="clk_sysclk_mmcm_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="clk_sysclk_mmcm_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="clk_sysclk_mmcm_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_sysclk_mmcm">
-    <File Path="$PSRCDIR/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
+    <File Path="$PPRDIR/../../firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -23,7 +23,7 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_sysclk_mmcm">
-    <File Path="$PSRCDIR/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
+    <File Path="$PPRDIR/../../firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Wed Apr 10 13:25:53 2019
--- Host        : localhost.localdomain running 64-bit Fedora release 29 (Twenty Nine)
+-- Date        : Thu Apr 11 15:48:09 2019
+-- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 -- Command     : write_vhdl -force -mode funcsim
---               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
+--               /home/nate/projects/duneWireTension/firmware/source/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm_sim_netlist.vhdl
 -- Design      : clk_sysclk_mmcm
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,6 +21,7 @@ entity clk_sysclk_mmcm_clk_sysclk_mmcm_clk_wiz is
     clk_out3 : out STD_LOGIC;
     clk_out4 : out STD_LOGIC;
     clk_out5 : out STD_LOGIC;
+    clk_out6 : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1_p : in STD_LOGIC;
@@ -37,6 +38,7 @@ architecture STRUCTURE of clk_sysclk_mmcm_clk_sysclk_mmcm_clk_wiz is
   signal clk_out3_clk_sysclk_mmcm : STD_LOGIC;
   signal clk_out4_clk_sysclk_mmcm : STD_LOGIC;
   signal clk_out5_clk_sysclk_mmcm : STD_LOGIC;
+  signal clk_out6_clk_sysclk_mmcm : STD_LOGIC;
   signal clkfbout_buf_clk_sysclk_mmcm : STD_LOGIC;
   signal clkfbout_clk_sysclk_mmcm : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
@@ -46,7 +48,6 @@ architecture STRUCTURE of clk_sysclk_mmcm_clk_sysclk_mmcm_clk_wiz is
   signal NLW_mmcm_adv_inst_CLKOUT1B_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKOUT2B_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKOUT3B_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_DRDY_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_PSDONE_UNCONNECTED : STD_LOGIC;
@@ -65,6 +66,7 @@ architecture STRUCTURE of clk_sysclk_mmcm_clk_sysclk_mmcm_clk_wiz is
   attribute BOX_TYPE of clkout3_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout4_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout5_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkout6_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of mmcm_adv_inst : label is "PRIMITIVE";
 begin
 clkf_buf: unisim.vcomponents.BUFG
@@ -106,6 +108,11 @@ clkout5_buf: unisim.vcomponents.BUFG
       I => clk_out5_clk_sysclk_mmcm,
       O => clk_out5
     );
+clkout6_buf: unisim.vcomponents.BUFG
+     port map (
+      I => clk_out6_clk_sysclk_mmcm,
+      O => clk_out6
+    );
 mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
@@ -135,7 +142,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       CLKOUT4_DUTY_CYCLE => 0.500000,
       CLKOUT4_PHASE => 0.000000,
       CLKOUT4_USE_FINE_PS => false,
-      CLKOUT5_DIVIDE => 1,
+      CLKOUT5_DIVIDE => 64,
       CLKOUT5_DUTY_CYCLE => 0.500000,
       CLKOUT5_PHASE => 0.000000,
       CLKOUT5_USE_FINE_PS => false,
@@ -175,7 +182,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       CLKOUT3 => clk_out4_clk_sysclk_mmcm,
       CLKOUT3B => NLW_mmcm_adv_inst_CLKOUT3B_UNCONNECTED,
       CLKOUT4 => clk_out5_clk_sysclk_mmcm,
-      CLKOUT5 => NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED,
+      CLKOUT5 => clk_out6_clk_sysclk_mmcm,
       CLKOUT6 => NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED,
       DADDR(6 downto 0) => B"0000000",
       DCLK => '0',
@@ -204,6 +211,7 @@ entity clk_sysclk_mmcm is
     clk_out3 : out STD_LOGIC;
     clk_out4 : out STD_LOGIC;
     clk_out5 : out STD_LOGIC;
+    clk_out6 : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1_p : in STD_LOGIC;
@@ -224,6 +232,7 @@ inst: entity work.clk_sysclk_mmcm_clk_sysclk_mmcm_clk_wiz
       clk_out3 => clk_out3,
       clk_out4 => clk_out4,
       clk_out5 => clk_out5,
+      clk_out6 => clk_out6,
       locked => locked,
       reset => reset
     );
