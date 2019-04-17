@@ -10,8 +10,8 @@ use UNISIM.VCOMPONENTS.all;
 
 entity top_tension_analyzer_vc707 is
   port (
-    acStimX200_oddr : out std_logic := '0';
-    acStim_oddr     : out std_logic := '0';
+    acStimX200_obuf : out std_logic := '0';
+    acStim_obuf     : out std_logic := '0';
     V_p             : in  std_logic;
     V_n             : in  std_logic;
     Vaux0_n         : in  std_logic;
@@ -98,7 +98,9 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal sysclk12_5 : std_logic := '0';
 
   signal acStimX200 : std_logic := '0';
+  signal acStimX200_oddr : std_logic := '0';
   signal acStim     : std_logic := '0';
+  signal acStim_oddr     : std_logic := '0';
 
   signal acStim_enable        : std_logic                     := '0';
   signal acStim_periodCnt     : unsigned(31 downto 0)         := (others => '0');
@@ -131,35 +133,57 @@ begin
       clk_in1_n => sysclk_n
     );
 
-  ODDR_acStim : ODDR
-    generic map(
-      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
-      INIT         => '0',         -- Initial value for Q port ('1' or '0')
-      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
-    port map (
-      Q  => acStim_oddr,   -- 1-bit DDR output
-      C  => sysclk200,     -- 1-bit clock input
-      CE => acStim_enable, -- 1-bit clock enable input
-      D1 => acStim,
-      D2 => '0',
-      R  => '0', -- 1-bit reset input
-      S  => '0'  -- 1-bit set input
-    );
+--  ODDR_acStim : ODDR
+--    generic map(
+--      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
+--      INIT         => '0',         -- Initial value for Q port ('1' or '0')
+--      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
+--    port map (
+--      Q  => acStim_oddr,   -- 1-bit DDR output
+--      C  => sysclk200,     -- 1-bit clock input
+--      CE => acStim_enable, -- 1-bit clock enable input
+--      D1 => acStim,
+--      D2 => '0',
+--      R  => '0', -- 1-bit reset input
+--      S  => '0'  -- 1-bit set input
+--    );
+--
+--
+--  ODDR_acStimx200 : ODDR
+--    generic map(
+--      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
+--      INIT         => '0',         -- Initial value for Q port ('1' or '0')
+--      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
+--    port map (
+--      Q  => acStimX200_oddr, -- 1-bit DDR output
+--      C  => sysclk200,       -- 1-bit clock input
+--      CE => acStim_enable,   -- 1-bit clock enable input
+--      D1 => acStimX200,
+--      D2 => '0',
+--      R  => '0', -- 1-bit reset input
+--      S  => '0'  -- 1-bit set input
+--    );
 
-  ODDR_acStimx200 : ODDR
-    generic map(
-      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
-      INIT         => '0',         -- Initial value for Q port ('1' or '0')
-      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
-    port map (
-      Q  => acStimX200_oddr, -- 1-bit DDR output
-      C  => sysclk200,       -- 1-bit clock input
-      CE => acStim_enable,   -- 1-bit clock enable input
-      D1 => acStimX200,
-      D2 => '0',
-      R  => '0', -- 1-bit reset input
-      S  => '0'  -- 1-bit set input
-    );
+
+OBUF_acStimX200_inst : OBUF
+generic map (
+DRIVE => 16,
+IOSTANDARD => "LVCMOS18",
+SLEW => "SLOW")
+port map (
+O => acStimX200_obuf, -- Buffer output (connect directly to top-level port)
+I => acStimX200 -- Buffer input
+);
+
+OBUF_acStim_inst : OBUF
+generic map (
+DRIVE => 16,
+IOSTANDARD => "LVCMOS18",
+SLEW => "SLOW")
+port map (
+O => acStim_obuf, -- Buffer output (connect directly to top-level port)
+I => acStim -- Buffer input
+);
 
 -- the 32 bit division takes forever
   compute_n_periods : process (sysclk12_5)
