@@ -21,6 +21,7 @@ read_xdc -verbose $proj_sources_dir/constraints/system.xdc
 # IP for scint timestamp
 read_ip $proj_sources_dir/cores/ip/clk_sysclk_mmcm/clk_sysclk_mmcm.xci
 read_ip $proj_sources_dir/cores/ip/vio_ctrl/vio_ctrl.xci
+read_ip $proj_sources_dir/cores/ip/fifo_adcData/fifo_adcData.xci
 read_ip $proj_sources_dir/cores/ip/ila_xadc/ila_xadc.xci
 read_ip $proj_sources_dir/cores/ip/xadc_senseWire/xadc_senseWire.xci
 

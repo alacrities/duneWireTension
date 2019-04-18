@@ -43,6 +43,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
     );
   end component;
 
+
   COMPONENT xadc_senseWire
     PORT (
       m_axis_tvalid : OUT STD_LOGIC;
@@ -68,6 +69,19 @@ architecture STRUCT of top_tension_analyzer_vc707 is
     );
   END COMPONENT;
 
+  COMPONENT fifo_adcData
+    PORT (
+      clk   : IN  STD_LOGIC;
+      srst  : IN  STD_LOGIC;
+      din   : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);
+      wr_en : IN  STD_LOGIC;
+      rd_en : IN  STD_LOGIC;
+      dout  : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+      full  : OUT STD_LOGIC;
+      empty : OUT STD_LOGIC
+    );
+  END COMPONENT;
+
   COMPONENT ila_xadc
 
     PORT (
@@ -90,16 +104,16 @@ architecture STRUCT of top_tension_analyzer_vc707 is
     );
   END COMPONENT;
 
-  signal sysclk25  : std_logic := '0';
-  signal sysclk50  : std_logic := '0';
-  signal sysclk100 : std_logic := '0';
-  signal sysclk200 : std_logic := '0';
-  signal sysclk400 : std_logic := '0';
+  signal sysclk25   : std_logic := '0';
+  signal sysclk50   : std_logic := '0';
+  signal sysclk100  : std_logic := '0';
+  signal sysclk200  : std_logic := '0';
+  signal sysclk400  : std_logic := '0';
   signal sysclk12_5 : std_logic := '0';
 
-  signal acStimX200 : std_logic := '0';
+  signal acStimX200      : std_logic := '0';
   signal acStimX200_oddr : std_logic := '0';
-  signal acStim     : std_logic := '0';
+  signal acStim          : std_logic := '0';
   signal acStim_oddr     : std_logic := '0';
 
   signal acStim_enable        : std_logic                     := '0';
@@ -114,6 +128,13 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal m_axis_tdata  : std_logic_vector(15 DOWNTO 0);
   signal m_axis_tid    : std_logic_vector(4 DOWNTO 0);
   signal m_axis_resetn : std_logic;
+
+  signal fifo_adcData_ch_wen    : std_logic                     := '0';
+  signal fifo_adcData_ch_ren    : std_logic                     := '0';
+  signal fifo_adcData_ch_ef     : std_logic                     := '0';
+  signal fifo_adcData_ch_ff     : std_logic                     := '0';
+  signal fifo_adcData_ch_dout   : std_logic_vector(17 downto 0) := (others => '0');
+  signal fifo_adcData_ch_rdBusy      : std_logic                     := '0';
 
 begin
   clk_sysclk_mmcm_inst : clk_sysclk_mmcm
@@ -133,59 +154,59 @@ begin
       clk_in1_n => sysclk_n
     );
 
---  ODDR_acStim : ODDR
---    generic map(
---      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
---      INIT         => '0',         -- Initial value for Q port ('1' or '0')
---      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
---    port map (
---      Q  => acStim_oddr,   -- 1-bit DDR output
---      C  => sysclk200,     -- 1-bit clock input
---      CE => acStim_enable, -- 1-bit clock enable input
---      D1 => acStim,
---      D2 => '0',
---      R  => '0', -- 1-bit reset input
---      S  => '0'  -- 1-bit set input
---    );
---
---
---  ODDR_acStimx200 : ODDR
---    generic map(
---      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
---      INIT         => '0',         -- Initial value for Q port ('1' or '0')
---      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
---    port map (
---      Q  => acStimX200_oddr, -- 1-bit DDR output
---      C  => sysclk200,       -- 1-bit clock input
---      CE => acStim_enable,   -- 1-bit clock enable input
---      D1 => acStimX200,
---      D2 => '0',
---      R  => '0', -- 1-bit reset input
---      S  => '0'  -- 1-bit set input
---    );
+  --  ODDR_acStim : ODDR
+  --    generic map(
+  --      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
+  --      INIT         => '0',         -- Initial value for Q port ('1' or '0')
+  --      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
+  --    port map (
+  --      Q  => acStim_oddr,   -- 1-bit DDR output
+  --      C  => sysclk200,     -- 1-bit clock input
+  --      CE => acStim_enable, -- 1-bit clock enable input
+  --      D1 => acStim,
+  --      D2 => '0',
+  --      R  => '0', -- 1-bit reset input
+  --      S  => '0'  -- 1-bit set input
+  --    );
+  --
+  --
+  --  ODDR_acStimx200 : ODDR
+  --    generic map(
+  --      DDR_CLK_EDGE => "SAME_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE"
+  --      INIT         => '0',         -- Initial value for Q port ('1' or '0')
+  --      SRTYPE       => "SYNC")      -- Reset Type ("ASYNC" or "SYNC")
+  --    port map (
+  --      Q  => acStimX200_oddr, -- 1-bit DDR output
+  --      C  => sysclk200,       -- 1-bit clock input
+  --      CE => acStim_enable,   -- 1-bit clock enable input
+  --      D1 => acStimX200,
+  --      D2 => '0',
+  --      R  => '0', -- 1-bit reset input
+  --      S  => '0'  -- 1-bit set input
+  --    );
 
 
-OBUF_acStimX200_inst : OBUF
-generic map (
-DRIVE => 16,
-IOSTANDARD => "LVCMOS18",
-SLEW => "SLOW")
-port map (
-O => acStimX200_obuf, -- Buffer output (connect directly to top-level port)
-I => acStimX200 -- Buffer input
-);
+  OBUF_acStimX200_inst : OBUF
+    generic map (
+      DRIVE      => 16,
+      IOSTANDARD => "LVCMOS18",
+      SLEW       => "SLOW")
+    port map (
+      O => acStimX200_obuf, -- Buffer output (connect directly to top-level port)
+      I => acStimX200       -- Buffer input
+    );
 
-OBUF_acStim_inst : OBUF
-generic map (
-DRIVE => 16,
-IOSTANDARD => "LVCMOS18",
-SLEW => "SLOW")
-port map (
-O => acStim_obuf, -- Buffer output (connect directly to top-level port)
-I => acStim -- Buffer input
-);
+  OBUF_acStim_inst : OBUF
+    generic map (
+      DRIVE      => 16,
+      IOSTANDARD => "LVCMOS18",
+      SLEW       => "SLOW")
+    port map (
+      O => acStim_obuf, -- Buffer output (connect directly to top-level port)
+      I => acStim       -- Buffer input
+    );
 
--- the 32 bit division takes forever
+  -- the 32 bit division takes forever
   compute_n_periods : process (sysclk12_5)
   begin
     if rising_edge(sysclk12_5) then
@@ -203,12 +224,12 @@ I => acStim -- Buffer input
 
       if acStim_periodCnt = acStim_nPeriod then
         acStim           <= not acStim;
-        acStim_periodCnt <= (acStim_periodCnt'left downto 1  => '0', 0  => '1');--x"000001";
+        acStim_periodCnt <= (acStim_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
 
       if acStimX200_periodCnt = acStimX200_nPeriod then
         acStimX200           <= not acStimX200;
-        acStimX200_periodCnt <=(acStimX200_periodCnt'left downto 1  => '0', 0  => '1');--x"000001";
+        acStimX200_periodCnt <= (acStimX200_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
 
     end if;
@@ -238,26 +259,57 @@ I => acStim -- Buffer input
       busy_out    => open
     );
 
-  ila_xadc_inst : ila_xadc
+  fifo_adcData_ch : fifo_adcData
+    PORT MAP (
+      clk   => sysclk25,
+      srst  => not m_axis_resetn,
+      din   => "00" & m_axis_tdata,
+      wr_en => fifo_adcData_ch_ren,
+      rd_en => fifo_adcData_ch_ren,
+      dout  => fifo_adcData_ch_dout,
+      full  => fifo_adcData_ch_ff,
+      empty => fifo_adcData_ch_ef
+    );
+
+  fifo_adcData_ch_ren <= fifo_adcData_ch_rdBusy  and not fifo_adcData_ch_ef;
+
+  fifo_adcData_ch_wen <= m_axis_tvalid when m_axis_tid = "01000" else '0';
+
+  sortAdcCh : process ( sysclk25)
+  begin
+    if rising_edge(sysclk25) then
+      fifo_adcData_ch_rdBusy <= (fifo_adcData_ch_ff or fifo_adcData_ch_rdBusy) and
+        not fifo_adcData_ch_ef;
+    end if;
+  end process sortAdcCh;
+
+  ila_xadc_ch : ila_xadc
+    PORT MAP (
+      clk       => sysclk25,
+      probe0(0) => fifo_adcData_ch_ren,
+      probe1    => fifo_adcData_ch_dout(15 downto 0),
+      probe2    => m_axis_tid
+    );
+
+  ila_xadc_all : ila_xadc
     PORT MAP (
       clk       => sysclk25,
       probe0(0) => m_axis_tvalid,
       probe1    => m_axis_tdata,
       probe2    => m_axis_tid
     );
-
   vio_ctrl_inst : vio_ctrl
     PORT MAP (
-      clk                      => sysclk12_5,
+      clk => sysclk12_5,
       --probe_in0(31 downto 24)  => x"00",
-      probe_in0(31 downto 0)   => std_logic_vector(acStim_nPeriod),
+      probe_in0(31 downto 0) => std_logic_vector(acStim_nPeriod),
       --probe_in1(31 downto 24)  => x"00",
-      probe_in1(31 downto 0)   => std_logic_vector(acStimX200_nPeriod),
+      probe_in1(31 downto 0) => std_logic_vector(acStimX200_nPeriod),
       --probe_out0(31 downto 24) => open,
-      probe_out0(31 downto 0)  => freqReq,
-      probe_out1(0)            => m_axis_resetn,
-      probe_out2(0)            => m_axis_tready,
-      probe_out3(0)            => acStim_enable
+      probe_out0(31 downto 0) => freqReq,
+      probe_out1(0)           => m_axis_resetn,
+      probe_out2(0)           => m_axis_tready,
+      probe_out3(0)           => acStim_enable
     );
 
 end STRUCT;

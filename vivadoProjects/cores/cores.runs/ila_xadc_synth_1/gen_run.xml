@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="ila_xadc_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1554916231">
-  <File Type="RDS-UTIL-PB" Name="ila_xadc_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="ila_xadc_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="ila_xadc_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="ila_xadc.vds"/>
   <File Type="RDS-DCP" Name="ila_xadc.dcp"/>
   <File Type="PA-TCL" Name="ila_xadc.tcl"/>

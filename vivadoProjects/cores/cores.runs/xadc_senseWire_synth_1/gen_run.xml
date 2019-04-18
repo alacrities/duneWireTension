@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="xadc_senseWire_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1554914389">
-  <File Type="RDS-UTIL-PB" Name="xadc_senseWire_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="xadc_senseWire_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="xadc_senseWire_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="xadc_senseWire.vds"/>
   <File Type="RDS-DCP" Name="xadc_senseWire.dcp"/>
   <File Type="PA-TCL" Name="xadc_senseWire.tcl"/>
