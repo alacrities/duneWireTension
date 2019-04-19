@@ -105,7 +105,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   END COMPONENT;
 
   type chanList_t is array(natural range <>) of std_logic_vector(4 downto 0);
-  constant chanList : chanList_t(2 downto 0) := ("11000","01000","00011");
+  constant chanList : chanList_t(2 downto 0) := ("11000","10000","00011");
 
   signal sysclk25   : std_logic              := '0';
   signal sysclk50   : std_logic              := '0';
@@ -270,7 +270,7 @@ begin
         clk   => sysclk25,
         srst  => not m_axis_resetn,
         din   => "00" & m_axis_tdata,
-        wr_en => fifo_adcData_ren(i),
+        wr_en => fifo_adcData_wen(i),
         rd_en => fifo_adcData_ren(i),
         dout  => fifo_adcData_dout(i),
         full  => fifo_adcData_ff(i),
