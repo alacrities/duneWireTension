@@ -70,7 +70,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   END COMPONENT;
 
   COMPONENT fifo_adcData
-    PORT (
+     PORT (
       clk   : IN  STD_LOGIC;
       srst  : IN  STD_LOGIC;
       din   : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);
@@ -104,12 +104,15 @@ architecture STRUCT of top_tension_analyzer_vc707 is
     );
   END COMPONENT;
 
-  signal sysclk25   : std_logic := '0';
-  signal sysclk50   : std_logic := '0';
-  signal sysclk100  : std_logic := '0';
-  signal sysclk200  : std_logic := '0';
-  signal sysclk400  : std_logic := '0';
-  signal sysclk12_5 : std_logic := '0';
+  type chanList_t is array(natural range <>) of std_logic_vector(4 downto 0);
+  constant chanList : chanList_t(2 downto 0) := ("11000","01000","00011");
+
+  signal sysclk25   : std_logic              := '0';
+  signal sysclk50   : std_logic              := '0';
+  signal sysclk100  : std_logic              := '0';
+  signal sysclk200  : std_logic              := '0';
+  signal sysclk400  : std_logic              := '0';
+  signal sysclk12_5 : std_logic              := '0';
 
   signal acStimX200      : std_logic := '0';
   signal acStimX200_oddr : std_logic := '0';
@@ -129,12 +132,13 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal m_axis_tid    : std_logic_vector(4 DOWNTO 0);
   signal m_axis_resetn : std_logic;
 
-  signal fifo_adcData_ch_wen    : std_logic                     := '0';
-  signal fifo_adcData_ch_ren    : std_logic                     := '0';
-  signal fifo_adcData_ch_ef     : std_logic                     := '0';
-  signal fifo_adcData_ch_ff     : std_logic                     := '0';
-  signal fifo_adcData_ch_dout   : std_logic_vector(17 downto 0) := (others => '0');
-  signal fifo_adcData_ch_rdBusy      : std_logic                     := '0';
+  signal fifo_adcData_wen : std_logic_vector(chanList'range) := (others => '0');
+  signal fifo_adcData_ren : std_logic_vector(chanList'range) := (others => '0');
+  signal fifo_adcData_ef  : std_logic_vector(chanList'range) := (others => '0');
+  signal fifo_adcData_ff  : std_logic_vector(chanList'range) := (others => '0');
+  type slv_vector_t is array(natural range <>) of std_logic_vector;
+  signal fifo_adcData_dout   : slv_vector_t(chanList'range)(17 downto 0) := (others => (others => '0'));
+  signal fifo_adcData_rdBusy : std_logic_vector(chanList'range)          := (others => '0');
 
 begin
   clk_sysclk_mmcm_inst : clk_sysclk_mmcm
@@ -259,38 +263,40 @@ begin
       busy_out    => open
     );
 
-  fifo_adcData_ch : fifo_adcData
-    PORT MAP (
-      clk   => sysclk25,
-      srst  => not m_axis_resetn,
-      din   => "00" & m_axis_tdata,
-      wr_en => fifo_adcData_ch_ren,
-      rd_en => fifo_adcData_ch_ren,
-      dout  => fifo_adcData_ch_dout,
-      full  => fifo_adcData_ch_ff,
-      empty => fifo_adcData_ch_ef
-    );
+  genCh : for i in 2 downto 0 generate
 
-  fifo_adcData_ch_ren <= fifo_adcData_ch_rdBusy  and not fifo_adcData_ch_ef;
+    fifo_adcData_ch : fifo_adcData
+      PORT MAP (
+        clk   => sysclk25,
+        srst  => not m_axis_resetn,
+        din   => "00" & m_axis_tdata,
+        wr_en => fifo_adcData_ren(i),
+        rd_en => fifo_adcData_ren(i),
+        dout  => fifo_adcData_dout(i),
+        full  => fifo_adcData_ff(i),
+        empty => fifo_adcData_ef(i)
+      );
 
-  fifo_adcData_ch_wen <= m_axis_tvalid when m_axis_tid = "01000" else '0';
+    fifo_adcData_ren(i) <= fifo_adcData_rdBusy(i) and not fifo_adcData_ef(i);
+    fifo_adcData_wen(i) <= m_axis_tvalid when m_axis_tid = chanList(i) else '0';
 
-  sortAdcCh : process ( sysclk25)
-  begin
-    if rising_edge(sysclk25) then
-      fifo_adcData_ch_rdBusy <= (fifo_adcData_ch_ff or fifo_adcData_ch_rdBusy) and
-        not fifo_adcData_ch_ef;
-    end if;
-  end process sortAdcCh;
+    sortAdcCh : process ( sysclk25)
+    begin
+      if rising_edge(sysclk25) then
+        fifo_adcData_rdBusy(i) <= (fifo_adcData_ff(i) or fifo_adcData_rdBusy(i)) and
+          not fifo_adcData_ef(i);
+      end if;
+    end process sortAdcCh;
 
-  ila_xadc_ch : ila_xadc
-    PORT MAP (
-      clk       => sysclk25,
-      probe0(0) => fifo_adcData_ch_ren,
-      probe1    => fifo_adcData_ch_dout(15 downto 0),
-      probe2    => m_axis_tid
-    );
+    ila_xadc_ch : ila_xadc
+      PORT MAP (
+        clk       => sysclk25,
+        probe0(0) => fifo_adcData_ren(i),
+        probe1    => fifo_adcData_dout(i)(15 downto 0),
+        probe2    => m_axis_tid
+      );
 
+  end generate genCh;
   ila_xadc_all : ila_xadc
     PORT MAP (
       clk       => sysclk25,

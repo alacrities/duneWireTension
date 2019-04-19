@@ -1,0 +1,940 @@
+{
+    "ltx_root": {
+        "version": 4,
+        "minor": 0,
+        "ltx_data": [
+            {
+                "name": "EDA_PROBESET",
+                "active": true,
+                "debug_cores": [
+                    {
+                        "type": "XSDB_V3",
+                        "name": "dbg_hub",
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "12500000"
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "genCh[0].ila_xadc_ch",
+                        "spec": "labtools_ila_v6",
+                        "ipName": "ila",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 0,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "48D6016DFF9F50579655BCA2A319C65F",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 0,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "genCh[0].fifo_adcData_ch_i_1_n_0",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 1,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 15,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "fifo_adcData_dout[0]",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "fifo_adcData_dout[0][15]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][14]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][13]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][12]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][11]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][10]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][9]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][8]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][7]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][6]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][5]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][4]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][3]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][2]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][1]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[0][0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 2,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 4,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tid_1",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "m_axis_tid_1[4]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_1[3]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_1[2]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_1[1]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_1[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "genCh[1].ila_xadc_ch",
+                        "spec": "labtools_ila_v6",
+                        "ipName": "ila",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 1,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "A58E16C4BDDD5AB28BC9740B49926486",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 3,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "genCh[1].fifo_adcData_ch_i_1_n_0",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 4,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 15,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "fifo_adcData_dout[1]",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "fifo_adcData_dout[1][15]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][14]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][13]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][12]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][11]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][10]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][9]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][8]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][7]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][6]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][5]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][4]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][3]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][2]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][1]"
+                                            },
+                                            {
+                                                "name": "fifo_adcData_dout[1][0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 5,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 4,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tid_2",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "m_axis_tid_2[4]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_2[3]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_2[2]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_2[1]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_2[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "genCh[2].ila_xadc_ch",
+                        "spec": "labtools_ila_v6",
+                        "ipName": "ila",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 2,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "56F36F87C9E85BD7AD0A39FA330217FE",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 6,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "genCh[2].fifo_adcData_ch_i_2_n_0",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 7,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 15,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "dout",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "dout[15]"
+                                            },
+                                            {
+                                                "name": "dout[14]"
+                                            },
+                                            {
+                                                "name": "dout[13]"
+                                            },
+                                            {
+                                                "name": "dout[12]"
+                                            },
+                                            {
+                                                "name": "dout[11]"
+                                            },
+                                            {
+                                                "name": "dout[10]"
+                                            },
+                                            {
+                                                "name": "dout[9]"
+                                            },
+                                            {
+                                                "name": "dout[8]"
+                                            },
+                                            {
+                                                "name": "dout[7]"
+                                            },
+                                            {
+                                                "name": "dout[6]"
+                                            },
+                                            {
+                                                "name": "dout[5]"
+                                            },
+                                            {
+                                                "name": "dout[4]"
+                                            },
+                                            {
+                                                "name": "dout[3]"
+                                            },
+                                            {
+                                                "name": "dout[2]"
+                                            },
+                                            {
+                                                "name": "dout[1]"
+                                            },
+                                            {
+                                                "name": "dout[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 8,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 4,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tid_3",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "m_axis_tid_3[4]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_3[3]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_3[2]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_3[1]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid_3[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "ila_xadc_all",
+                        "spec": "labtools_ila_v6",
+                        "ipName": "ila",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 3,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "E5CA3CCD9C835DE186CF27347D25F8AD",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 9,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tvalid",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 10,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 15,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tdata",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "m_axis_tdata[15]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[14]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[13]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[12]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[11]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[10]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[9]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[8]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[7]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[6]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[5]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[4]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[3]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[2]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[1]"
+                                            },
+                                            {
+                                                "name": "m_axis_tdata[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 11,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 4,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tid",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "m_axis_tid[4]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid[3]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid[2]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid[1]"
+                                            },
+                                            {
+                                                "name": "m_axis_tid[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VIO_V2",
+                        "name": "vio_ctrl_inst",
+                        "spec": "labtools_vio_v3",
+                        "ipName": "vio",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 4,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "F99C3A37254C5D91BDEC7927333B250F",
+                        "pins": [
+                            {
+                                "name": "probe_in0",
+                                "id": 12,
+                                "type": "DATA",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "acStim_nPeriod",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "acStim_nPeriod[31]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[30]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[29]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[28]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[27]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[26]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[25]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[24]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[23]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[22]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[21]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[20]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[19]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[18]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[17]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[16]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[15]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[14]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[13]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[12]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[11]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[10]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[9]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[8]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[7]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[6]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[5]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[4]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[3]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[2]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[1]"
+                                            },
+                                            {
+                                                "name": "acStim_nPeriod[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_in1",
+                                "id": 13,
+                                "type": "DATA",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "acStimX200_nPeriod",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "acStimX200_nPeriod[31]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[30]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[29]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[28]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[27]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[26]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[25]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[24]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[23]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[22]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[21]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[20]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[19]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[18]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[17]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[16]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[15]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[14]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[13]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[12]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[11]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[10]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[9]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[8]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[7]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[6]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[5]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[4]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[3]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[2]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[1]"
+                                            },
+                                            {
+                                                "name": "acStimX200_nPeriod[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out0",
+                                "id": 14,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "freqReq",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "freqReq[31]"
+                                            },
+                                            {
+                                                "name": "freqReq[30]"
+                                            },
+                                            {
+                                                "name": "freqReq[29]"
+                                            },
+                                            {
+                                                "name": "freqReq[28]"
+                                            },
+                                            {
+                                                "name": "freqReq[27]"
+                                            },
+                                            {
+                                                "name": "freqReq[26]"
+                                            },
+                                            {
+                                                "name": "freqReq[25]"
+                                            },
+                                            {
+                                                "name": "freqReq[24]"
+                                            },
+                                            {
+                                                "name": "freqReq[23]"
+                                            },
+                                            {
+                                                "name": "freqReq[22]"
+                                            },
+                                            {
+                                                "name": "freqReq[21]"
+                                            },
+                                            {
+                                                "name": "freqReq[20]"
+                                            },
+                                            {
+                                                "name": "freqReq[19]"
+                                            },
+                                            {
+                                                "name": "freqReq[18]"
+                                            },
+                                            {
+                                                "name": "freqReq[17]"
+                                            },
+                                            {
+                                                "name": "freqReq[16]"
+                                            },
+                                            {
+                                                "name": "freqReq[15]"
+                                            },
+                                            {
+                                                "name": "freqReq[14]"
+                                            },
+                                            {
+                                                "name": "freqReq[13]"
+                                            },
+                                            {
+                                                "name": "freqReq[12]"
+                                            },
+                                            {
+                                                "name": "freqReq[11]"
+                                            },
+                                            {
+                                                "name": "freqReq[10]"
+                                            },
+                                            {
+                                                "name": "freqReq[9]"
+                                            },
+                                            {
+                                                "name": "freqReq[8]"
+                                            },
+                                            {
+                                                "name": "freqReq[7]"
+                                            },
+                                            {
+                                                "name": "freqReq[6]"
+                                            },
+                                            {
+                                                "name": "freqReq[5]"
+                                            },
+                                            {
+                                                "name": "freqReq[4]"
+                                            },
+                                            {
+                                                "name": "freqReq[3]"
+                                            },
+                                            {
+                                                "name": "freqReq[2]"
+                                            },
+                                            {
+                                                "name": "freqReq[1]"
+                                            },
+                                            {
+                                                "name": "freqReq[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out1",
+                                "id": 15,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_resetn",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out2",
+                                "id": 16,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "m_axis_tready__0",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe_out3",
+                                "id": 17,
+                                "type": "DATA",
+                                "direction": "OUT",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 3,
+                                "nets": [
+                                    {
+                                        "name": "acStim_enable",
+                                        "isBus": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
