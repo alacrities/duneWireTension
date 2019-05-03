@@ -1,8 +1,8 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Wed Apr 10 13:18:52 2019
--- Host        : localhost.localdomain running 64-bit Fedora release 29 (Twenty Nine)
+-- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+-- Date        : Thu May  2 18:40:06 2019
+-- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/vio_ctrl/vio_ctrl_stub.vhdl
 -- Design      : vio_ctrl
@@ -20,7 +20,14 @@ entity vio_ctrl is
     probe_out0 : out STD_LOGIC_VECTOR ( 31 downto 0 );
     probe_out1 : out STD_LOGIC_VECTOR ( 0 to 0 );
     probe_out2 : out STD_LOGIC_VECTOR ( 0 to 0 );
-    probe_out3 : out STD_LOGIC_VECTOR ( 0 to 0 )
+    probe_out3 : out STD_LOGIC_VECTOR ( 0 to 0 );
+    probe_out4 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe_out5 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe_out6 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe_out7 : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe_out8 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe_out9 : out STD_LOGIC_VECTOR ( 0 to 0 );
+    probe_out10 : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
 
 end vio_ctrl;
@@ -29,8 +36,8 @@ architecture stub of vio_ctrl is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clk,probe_in0[31:0],probe_in1[31:0],probe_out0[31:0],probe_out1[0:0],probe_out2[0:0],probe_out3[0:0]";
+attribute black_box_pad_pin of stub : architecture is "clk,probe_in0[31:0],probe_in1[31:0],probe_out0[31:0],probe_out1[0:0],probe_out2[0:0],probe_out3[0:0],probe_out4[15:0],probe_out5[15:0],probe_out6[15:0],probe_out7[31:0],probe_out8[15:0],probe_out9[0:0],probe_out10[3:0]";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "vio,Vivado 2018.2";
+attribute X_CORE_INFO of stub : architecture is "vio,Vivado 2018.3";
 begin
 end;

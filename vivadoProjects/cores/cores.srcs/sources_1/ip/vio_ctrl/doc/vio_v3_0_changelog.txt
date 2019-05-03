@@ -1,3 +1,7 @@
+2018.3:
+ * Version 3.0 (Rev. 19)
+ * No changes
+
 2018.2:
  * Version 3.0 (Rev. 19)
  * General: virtexuplus58g device support added

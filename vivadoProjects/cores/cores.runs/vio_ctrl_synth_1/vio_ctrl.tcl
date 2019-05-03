@@ -45,7 +45,7 @@ set_property used_in_implementation false [get_files -all /home/nate/projects/du
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-set_param ips.enableIPCacheLiteLoad 0
+set_param ips.enableIPCacheLiteLoad 1
 
 set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/vio_ctrl_synth_1 -new_name vio_ctrl -ip [get_ips vio_ctrl]]
 

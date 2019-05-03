@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Apr 18 08:40:08 2019">
+<application name="pa" timeStamp="Thu May  2 18:54:05 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="ca10eff32cf54c67b1a3424c308adb02" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -17,39 +17,51 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="CoreView" value="4" type="JavaHandler"/>
-<property name="CustomizeCore" value="7" type="JavaHandler"/>
+<property name="CoreView" value="5" type="JavaHandler"/>
+<property name="CustomizeCore" value="8" type="JavaHandler"/>
 <property name="EditDelete" value="1" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="RecustomizeCore" value="2" type="JavaHandler"/>
-<property name="UpgradeIP" value="1" type="JavaHandler"/>
+<property name="OpenCheckpoint" value="1" type="JavaHandler"/>
+<property name="RecustomizeCore" value="11" type="JavaHandler"/>
+<property name="UpgradeIP" value="3" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
-<property name="BaseDialog_OK" value="10" type="GuiHandlerData"/>
+<property name="BaseDialog_CANCEL" value="1" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="23" type="GuiHandlerData"/>
 <property name="BoardChooser_BOARD_TABLE" value="1" type="GuiHandlerData"/>
 <property name="CommandsInput_TYPE_TCL_COMMAND_HERE" value="1" type="GuiHandlerData"/>
-<property name="CoreTreeTablePanel_CORE_TREE_TABLE" value="21" type="GuiHandlerData"/>
+<property name="CoreTreeTablePanel_CORE_TREE_TABLE" value="28" type="GuiHandlerData"/>
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_CATEGORY" value="1" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="39" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="4" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="92" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="5" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="HFolderChooserHelpers_UP_ONE_LEVEL" value="3" type="GuiHandlerData"/>
+<property name="IPPropPanel_UPGRADE_VERSION" value="3" type="GuiHandlerData"/>
+<property name="MainMenuMgr_CHECKPOINT" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_OPEN_RECENT_CHECKPOINT" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="PACodeView_COPY" value="2" type="GuiHandlerData"/>
+<property name="PACommandNames_OPEN_CHECKPOINT" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_UPGRADE_IP" value="1" type="GuiHandlerData"/>
+<property name="ProgressDialog_BACKGROUND" value="1" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_PROJECT_NAME" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_DELETE" value="1" type="GuiHandlerData"/>
-<property name="SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL" value="2" type="GuiHandlerData"/>
-<property name="SimpleOutputProductDialog_GENERATE_OUTPUT_PRODUCTS_IMMEDIATELY" value="7" type="GuiHandlerData"/>
+<property name="ReportIPStatusInfoDialog_IGNORE" value="2" type="GuiHandlerData"/>
+<property name="SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL" value="4" type="GuiHandlerData"/>
+<property name="SimpleOutputProductDialog_GENERATE_OUTPUT_PRODUCTS_IMMEDIATELY" value="12" type="GuiHandlerData"/>
 <property name="SimpleOutputProductDialog_OUTPUT_PRODUCT_TREE" value="2" type="GuiHandlerData"/>
 <property name="SrcChooserPanel_TARGET_LANGUAGE" value="1" type="GuiHandlerData"/>
 <property name="SrcMenu_IP_DOCUMENTATION" value="2" type="GuiHandlerData"/>
-<property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="1" type="GuiHandlerData"/>
+<property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="3" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="194" type="GuiMode"/>
+<property name="GuiMode" value="209" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="165" type="TclMode"/>
+<property name="TclMode" value="174" type="TclMode"/>
 </item>
 </section>
 </application>

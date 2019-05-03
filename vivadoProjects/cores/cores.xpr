@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2018.2 (64-bit)              -->
+<!-- Product Version: Vivado v2018.3 (64-bit)              -->
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="/home/nate/projects/duneWireTension/vivadoProjects/cores/cores.xpr">
+<Project Version="7" Minor="39" Path="/home/nate/projects/duneWireTension/vivadoProjects/cores/cores.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="5df0918b012847d5bdf2d9e7de8fc1e7"/>
@@ -40,13 +40,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="7"/>
-    <Option Name="WTModelSimExportSim" Val="7"/>
-    <Option Name="WTQuestaExportSim" Val="7"/>
-    <Option Name="WTIesExportSim" Val="7"/>
-    <Option Name="WTVcsExportSim" Val="7"/>
-    <Option Name="WTRivieraExportSim" Val="7"/>
-    <Option Name="WTActivehdlExportSim" Val="7"/>
+    <Option Name="WTXSimExportSim" Val="12"/>
+    <Option Name="WTModelSimExportSim" Val="12"/>
+    <Option Name="WTQuestaExportSim" Val="12"/>
+    <Option Name="WTIesExportSim" Val="12"/>
+    <Option Name="WTVcsExportSim" Val="12"/>
+    <Option Name="WTRivieraExportSim" Val="12"/>
+    <Option Name="WTActivehdlExportSim" Val="12"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -61,6 +61,13 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/ip/xadc_senseWire/xadc_senseWire.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/ip/ila_0/ila_0.xci">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -89,19 +96,6 @@
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
-    <FileSet Name="xadc_senseWire" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xadc_senseWire">
-      <File Path="$PSRCDIR/sources_1/ip/xadc_senseWire/xadc_senseWire.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="xadc_senseWire"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="ila_xadc" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_xadc">
       <File Path="$PSRCDIR/sources_1/ip/ila_xadc/ila_xadc.xci">
         <FileInfo>
@@ -112,19 +106,6 @@
       </File>
       <Config>
         <Option Name="TopModule" Val="ila_xadc"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="vio_ctrl" Type="BlockSrcs" RelSrcDir="$PSRCDIR/vio_ctrl">
-      <File Path="$PSRCDIR/sources_1/ip/vio_ctrl/vio_ctrl.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="vio_ctrl"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -154,6 +135,38 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+      <Filter Type="Utils"/>
+      <Config>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="vio_ctrl" Type="BlockSrcs" RelSrcDir="$PSRCDIR/vio_ctrl">
+      <File Path="$PSRCDIR/sources_1/ip/vio_ctrl/vio_ctrl.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="vio_ctrl"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="fifo_autoDatacollection" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_autoDatacollection">
+      <File Path="$PSRCDIR/sources_1/ip/fifo_autoDatacollection/fifo_autoDatacollection.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="fifo_autoDatacollection"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -180,7 +193,7 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7vx485tffg1761-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7vx485tffg1761-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -188,16 +201,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="xadc_senseWire_synth_1" Type="Ft3:Synth" SrcSet="xadc_senseWire" Part="xc7vx485tffg1761-2" ConstrsSet="xadc_senseWire" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/xadc_senseWire_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
-    <Run Id="ila_xadc_synth_1" Type="Ft3:Synth" SrcSet="ila_xadc" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ila_xadc_synth_1" IncludeInArchive="true">
+    <Run Id="ila_xadc_synth_1" Type="Ft3:Synth" SrcSet="ila_xadc" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ila_xadc_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -206,7 +210,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="vio_ctrl_synth_1" Type="Ft3:Synth" SrcSet="vio_ctrl" Part="xc7vx485tffg1761-2" ConstrsSet="vio_ctrl" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/vio_ctrl_synth_1" IncludeInArchive="true">
+    <Run Id="clk_sysclk_mmcm_synth_1" Type="Ft3:Synth" SrcSet="clk_sysclk_mmcm" Part="xc7vx485tffg1761-2" ConstrsSet="clk_sysclk_mmcm" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_sysclk_mmcm_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -215,7 +219,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="clk_sysclk_mmcm_synth_1" Type="Ft3:Synth" SrcSet="clk_sysclk_mmcm" Part="xc7vx485tffg1761-2" ConstrsSet="clk_sysclk_mmcm" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_sysclk_mmcm_synth_1" IncludeInArchive="true">
+    <Run Id="fifo_adcData_synth_1" Type="Ft3:Synth" SrcSet="fifo_adcData" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/fifo_adcData_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -224,7 +228,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="fifo_adcData_synth_1" Type="Ft3:Synth" SrcSet="fifo_adcData" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/fifo_adcData_synth_1" IncludeInArchive="true">
+    <Run Id="vio_ctrl_synth_1" Type="Ft3:Synth" SrcSet="vio_ctrl" Part="xc7vx485tffg1761-2" ConstrsSet="vio_ctrl" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/vio_ctrl_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -235,7 +239,18 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
+    <Run Id="fifo_autoDatacollection_synth_1" Type="Ft3:Synth" SrcSet="fifo_autoDatacollection" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_autoDatacollection" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/fifo_autoDatacollection_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -251,7 +266,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="xadc_senseWire_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="xadc_senseWire" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="xadc_senseWire_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="ila_xadc_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ila_xadc_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -267,7 +282,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="ila_xadc_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="ila_xadc_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="clk_sysclk_mmcm_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="clk_sysclk_mmcm" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_sysclk_mmcm_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -283,7 +298,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="vio_ctrl_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="vio_ctrl" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="vio_ctrl_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="fifo_adcData_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="fifo_adcData_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -299,9 +314,11 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="clk_sysclk_mmcm_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="clk_sysclk_mmcm" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="clk_sysclk_mmcm_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="vio_ctrl_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="vio_ctrl" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="vio_ctrl_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -315,7 +332,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="fifo_adcData_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="fifo_adcData_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="fifo_autoDatacollection_impl_1" Type="Ft2:EntireDesign" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_autoDatacollection" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="fifo_autoDatacollection_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
           <Desc>Default settings for Implementation.</Desc>
@@ -337,4 +354,36 @@
   <Board>
     <Jumpers/>
   </Board>
+  <DashboardSummary Version="1" Minor="0">
+    <Dashboards>
+      <Dashboard Name="default_dashboard">
+        <Gadgets>
+          <Gadget Name="drc_1" Type="drc" Version="1" Row="2" Column="0">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_drc_0 "/>
+          </Gadget>
+          <Gadget Name="methodology_1" Type="methodology" Version="1" Row="2" Column="1">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_methodology_0 "/>
+          </Gadget>
+          <Gadget Name="power_1" Type="power" Version="1" Row="1" Column="0">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_power_0 "/>
+          </Gadget>
+          <Gadget Name="timing_1" Type="timing" Version="1" Row="0" Column="1">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_timing_summary_0 "/>
+          </Gadget>
+          <Gadget Name="utilization_1" Type="utilization" Version="1" Row="0" Column="0">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="synth_1#synth_1_synth_report_utilization_0 "/>
+            <GadgetParam Name="RUN.STEP" Type="string" Value="synth_design"/>
+            <GadgetParam Name="RUN.TYPE" Type="string" Value="synthesis"/>
+          </Gadget>
+          <Gadget Name="utilization_2" Type="utilization" Version="1" Row="1" Column="1">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_place_report_utilization_0 "/>
+          </Gadget>
+        </Gadgets>
+      </Dashboard>
+      <CurrentDashboard>default_dashboard</CurrentDashboard>
+    </Dashboards>
+  </DashboardSummary>
+  <BootPmcSettings Version="1" Minor="0">
+    <Parameters/>
+  </BootPmcSettings>
 </Project>
