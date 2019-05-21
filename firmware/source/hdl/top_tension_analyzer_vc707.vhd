@@ -294,8 +294,8 @@ begin
       m_axis_tready => m_axis_tready,
       m_axis_tdata  => m_axis_tdata,
       m_axis_tid    => m_axis_tid,
-      m_axis_aclk   => sysclk25,
-      s_axis_aclk   => sysclk25,
+      m_axis_aclk   => sysclk100,
+      s_axis_aclk   => sysclk100,
       m_axis_resetn => m_axis_resetn,
 
       vp_in  => V_p,
@@ -316,7 +316,7 @@ begin
 
     fifo_adcData_ch : fifo_adcData
       PORT MAP (
-        clk   => sysclk25,
+        clk   => sysclk100,
         srst  => not m_axis_resetn,
         din   => "00" & m_axis_tdata,
         wr_en => fifo_adcData_wen(i),
@@ -329,9 +329,9 @@ begin
     fifo_adcData_ren(i) <= fifo_adcData_rdBusy(i) and not fifo_adcData_ef(i);
     fifo_adcData_wen(i) <= m_axis_tvalid when m_axis_tid = chanList(i) else '0';
 
-    sortAdcCh : process ( sysclk25)
+    sortAdcCh : process ( sysclk100)
     begin
-      if rising_edge(sysclk25) then
+      if rising_edge(sysclk100) then
         fifo_adcData_rdBusy(i) <= (fifo_adcData_ff(i) or fifo_adcData_rdBusy(i)) and
           not fifo_adcData_ef(i);
       end if;
@@ -339,7 +339,7 @@ begin
 
     ila_xadc_ch : ila_xadc
       PORT MAP (
-        clk       => sysclk25,
+        clk       => sysclk100,
         probe0(0) => fifo_adcData_ren(i),
         probe1    => fifo_adcData_dout(i)(15 downto 0),
         probe2    => m_axis_tid
@@ -349,7 +349,7 @@ begin
 
   ila_xadc_all : ila_xadc
     PORT MAP (
-      clk       => sysclk25,
+      clk       => sysclk100,
       probe0(0) => m_axis_tvalid,
       probe1    => m_axis_tdata,
       probe2    => m_axis_tid
@@ -401,12 +401,12 @@ begin
 
       busy   => ctrl_busy,
       reset => not m_axis_resetn,
-      clk   => sysclk25
+      clk   => sysclk100
     );
 
-  readoutModeMuxing : process (sysclk25)
+  readoutModeMuxing : process (sysclk100)
   begin
-    if rising_edge(sysclk25) then
+    if rising_edge(sysclk100) then
       -- Write header if MSb is 1,  ADC is 12 bits so there is no real data here
       if ctrl_adcFifo_headData(15) = '1' then
         fifoAutoDC_wen <= '1';
@@ -435,7 +435,7 @@ begin
 
   fifo_autoDatacollection_inst : fifo_autoDatacollection
     PORT MAP (
-      clk       => sysclk25,
+      clk       => sysclk100,
       srst      => not m_axis_resetn,
       din       => fifoAutoDC_din,
       wr_en     => fifoAutoDC_wen,
@@ -450,7 +450,7 @@ begin
 
   ila_xadc_fifoAutoSparse : ila_xadc
     PORT MAP (
-      clk       => sysclk25,
+      clk       => sysclk100,
       probe0(0) => fifoAutoDC_ren,
       probe1    => fifoAutoDC_dout(15 downto 0),
       probe2    => m_axis_tid
@@ -458,7 +458,7 @@ begin
 
   ila_xadc_fifoAuto : ila_xadc
     PORT MAP (
-      clk       => sysclk25,
+      clk       => sysclk100,
       probe0(0) => fifoAutoDC_wen,
       probe1    => fifoAutoDC_din(15 downto 0),
       probe2(0) => ctrl_acStim_enable,
@@ -470,7 +470,7 @@ begin
 
   ila_xadc_controller : ila_xadc
     PORT MAP (
-      clk       => sysclk25,
+      clk       => sysclk100,
       probe0(0) => '0',
       probe1    => std_logic_vector(ctrl_freqSet(15 downto 0)),
       probe2(0) => ctrl_acStim_enable,

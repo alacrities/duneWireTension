@@ -1,3 +1,7 @@
+2018.3:
+ * Version 3.3 (Rev. 6)
+ * General: Minor changes in attributes. No affect.
+
 2018.2:
  * Version 3.3 (Rev. 5)
  * No changes

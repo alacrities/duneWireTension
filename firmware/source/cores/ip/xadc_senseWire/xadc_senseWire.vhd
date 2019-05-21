@@ -80,7 +80,7 @@ end xadc_senseWire;
 architecture xilinx of xadc_senseWire is
 
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of xilinx : architecture is "xadc_senseWire,xadc_wiz_v3_3_5,{component_name=xadc_senseWire,enable_axi=false,enable_axi4stream=true,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=false,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=falseenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}";
+  attribute CORE_GENERATION_INFO of xilinx : architecture is "xadc_senseWire,xadc_wiz_v3_3_6,{component_name=xadc_senseWire,enable_axi=false,enable_axi4stream=true,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=false,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=falseenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}";
 
 
   component xadc_senseWire_axi_xadc 

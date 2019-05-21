@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Wed Apr 10 12:41:42 2019
--- Host        : localhost.localdomain running 64-bit Fedora release 29 (Twenty Nine)
--- Command     : write_vhdl -force -mode funcsim
---               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/xadc_senseWire/xadc_senseWire_sim_netlist.vhdl
+-- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+-- Date        : Fri May 17 11:08:35 2019
+-- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
+-- Command     : write_vhdl -force -mode funcsim -rename_top xadc_senseWire -prefix
+--               xadc_senseWire_ xadc_senseWire_sim_netlist.vhdl
 -- Design      : xadc_senseWire
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,8 +31,6 @@ entity xadc_senseWire_drp_to_axi4stream is
     CHANNEL : in STD_LOGIC_VECTOR ( 4 downto 0 );
     den_o_reg_0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of xadc_senseWire_drp_to_axi4stream : entity is "drp_to_axi4stream";
 end xadc_senseWire_drp_to_axi4stream;
 
 architecture STRUCTURE of xadc_senseWire_drp_to_axi4stream is
@@ -54,8 +52,6 @@ architecture STRUCTURE of xadc_senseWire_drp_to_axi4stream is
   signal den_o_i_1_n_0 : STD_LOGIC;
   signal fifo_empty : STD_LOGIC;
   signal \state__0\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  attribute RTL_KEEP : string;
-  attribute RTL_KEEP of \state__0\ : signal is "yes";
   signal valid_data_wren_i_1_n_0 : STD_LOGIC;
   signal valid_data_wren_reg_n_0 : STD_LOGIC;
   signal wren_fifo : STD_LOGIC;
@@ -80,21 +76,20 @@ architecture STRUCTURE of xadc_senseWire_drp_to_axi4stream is
   attribute box_type : string;
   attribute box_type of FIFO18E1_inst_data : label is "PRIMITIVE";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of FIFO18E1_inst_data_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of FIFO18E1_inst_data_i_1 : label is "soft_lutpair3";
   attribute box_type of FIFO18E1_inst_tid : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \FSM_sequential_state[3]_i_3\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \FSM_sequential_state[0]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \FSM_sequential_state[3]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \FSM_sequential_state[3]_i_3\ : label is "soft_lutpair2";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[0]\ : label is "wait_ind_adc:0111,wait_mode_change:0000,wait_seq_s_ch:1000,rd_ctrl_reg_41:0010,rd_en_ctrl_reg_41:0001,rd_b_reg_cmd:0101,rd_a_reg:0100,rd_b_reg:0110,wait_sim_samp:0011";
-  attribute KEEP : string;
-  attribute KEEP of \FSM_sequential_state_reg[0]\ : label is "yes";
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[1]\ : label is "wait_ind_adc:0111,wait_mode_change:0000,wait_seq_s_ch:1000,rd_ctrl_reg_41:0010,rd_en_ctrl_reg_41:0001,rd_b_reg_cmd:0101,rd_a_reg:0100,rd_b_reg:0110,wait_sim_samp:0011";
-  attribute KEEP of \FSM_sequential_state_reg[1]\ : label is "yes";
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[2]\ : label is "wait_ind_adc:0111,wait_mode_change:0000,wait_seq_s_ch:1000,rd_ctrl_reg_41:0010,rd_en_ctrl_reg_41:0001,rd_b_reg_cmd:0101,rd_a_reg:0100,rd_b_reg:0110,wait_sim_samp:0011";
-  attribute KEEP of \FSM_sequential_state_reg[2]\ : label is "yes";
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[3]\ : label is "wait_ind_adc:0111,wait_mode_change:0000,wait_seq_s_ch:1000,rd_ctrl_reg_41:0010,rd_en_ctrl_reg_41:0001,rd_b_reg_cmd:0101,rd_a_reg:0100,rd_b_reg:0110,wait_sim_samp:0011";
-  attribute KEEP of \FSM_sequential_state_reg[3]\ : label is "yes";
-  attribute SOFT_HLUTNM of den_o_i_2 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of m_axis_tvalid_INST_0 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \channel_id[0]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \channel_id[6]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of den_o_i_2 : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of m_axis_tvalid_INST_0 : label is "soft_lutpair3";
 begin
   AR(0) <= \^ar\(0);
   Q(5 downto 0) <= \^q\(5 downto 0);
@@ -213,14 +208,14 @@ FIFO18E1_inst_tid: unisim.vcomponents.FIFO18E1
     );
 \FSM_sequential_state[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000DFFD"
+      INIT => X"51555551"
     )
         port map (
-      I0 => \state__0\(1),
-      I1 => \state__0\(2),
-      I2 => DO(15),
-      I3 => DO(14),
-      I4 => \state__0\(0),
+      I0 => \state__0\(0),
+      I1 => \state__0\(1),
+      I2 => \state__0\(2),
+      I3 => DO(15),
+      I4 => DO(14),
       O => \FSM_sequential_state[0]_i_1_n_0\
     );
 \FSM_sequential_state[1]_i_1\: unisim.vcomponents.LUT5
@@ -540,8 +535,6 @@ entity xadc_senseWire_xadc_senseWire_xadc_core_drp is
     VAUXP : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_resetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of xadc_senseWire_xadc_senseWire_xadc_core_drp : entity is "xadc_senseWire_xadc_core_drp";
 end xadc_senseWire_xadc_senseWire_xadc_core_drp;
 
 architecture STRUCTURE of xadc_senseWire_xadc_senseWire_xadc_core_drp is
@@ -679,8 +672,6 @@ entity xadc_senseWire_xadc_senseWire_axi_xadc is
     vp_in : in STD_LOGIC;
     vn_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of xadc_senseWire_xadc_senseWire_axi_xadc : entity is "xadc_senseWire_axi_xadc";
 end xadc_senseWire_xadc_senseWire_axi_xadc;
 
 architecture STRUCTURE of xadc_senseWire_xadc_senseWire_axi_xadc is

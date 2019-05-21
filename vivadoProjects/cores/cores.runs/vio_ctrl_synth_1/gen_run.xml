@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="vio_ctrl_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1556836746">
-  <File Type="VDS-TIMING-PB" Name="vio_ctrl_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="vio_ctrl_timing_summary_synth.rpt"/>
+  <File Type="PA-TCL" Name="vio_ctrl.tcl"/>
+  <File Type="REPORTS-TCL" Name="vio_ctrl_reports.tcl"/>
+  <File Type="RDS-RDS" Name="vio_ctrl.vds"/>
   <File Type="RDS-DCP" Name="vio_ctrl.dcp"/>
   <File Type="RDS-UTIL-PB" Name="vio_ctrl_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="vio_ctrl_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="vio_ctrl_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="vio_ctrl.vds"/>
-  <File Type="REPORTS-TCL" Name="vio_ctrl_reports.tcl"/>
-  <File Type="PA-TCL" Name="vio_ctrl.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/vio_ctrl">
     <File Path="$PSRCDIR/sources_1/ip/vio_ctrl/vio_ctrl.xci">
       <FileInfo>
@@ -42,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
