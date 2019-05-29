@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Fri May  3 11:03:09 2019
+-- Last update : Wed May 29 11:03:02 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -42,6 +42,7 @@ entity wtaController is
 		acStim_enable : out std_logic             := '0';
 
 		acStim_nPeriod : in unsigned(31 downto 0) := (others => '0');
+		adcHScale : in unsigned(4 downto 0) := (others => '0');
 
 		adcFifo_af    : in  std_logic := '0';
 		adcFifo_wen   : out std_logic := '0';
@@ -55,11 +56,13 @@ entity wtaController is
 	);
 end entity wtaController;
 architecture rtl of wtaController is
-	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimRun, adcReadout);
+	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimRun, adcReadout, adcDownSample);
 	signal ctrlState, ctrlState_next : ctrlState_type := idle;
 
 	signal stimTimeCnt      : unsigned(31 downto 0) := (others => '0');
 	signal adcFifo_wstrbCnt : unsigned(31 downto 0) := (others => '0');
+	signal nDwnSample	 : unsigned(31 downto 0) := (others => '0');
+	signal dwnSampleCnt : unsigned(31 downto 0) := (others => '0');
 	signal ctrlStart_del                            :std_logic := '0';
 
 begin
@@ -91,6 +94,12 @@ begin
 				when adcReadout => -- count the number of samples that go into the readout FIFO
 					if adcFifo_wstrb then
 						adcFifo_wstrbCnt <= adcFifo_wstrbCnt+1;
+						dwnSampleCnt <= (others => '0'); -- reset the downsample count
+					end if;
+
+				when adcDownSample => -- count the down sample
+					if adcFifo_wstrb then
+						dwnSampleCnt <= dwnSampleCnt+1;
 					end if;
 
 				when others =>
@@ -106,6 +115,7 @@ begin
 		adcFifo_headData(15) <= '0';
 		acStim_enable  <= '0';
 				busy  <= '1';
+				 nDwnSample <= shift_right(acStim_nPeriod,to_integer(adcHScale));
 		case (ctrlState) is
 
 			when idle =>
@@ -124,7 +134,7 @@ begin
 				ctrlState_next    <= stimHeader2;
 
 			when stimHeader2 =>
-				adcFifo_headData <= x"8" & acStim_nPeriod(11 downto 0);
+				adcFifo_headData <= x"8" & acStim_nPeriod(23 downto 12);
 				ctrlState_next    <= stimHeader3;
 
 			when stimHeader3 =>
@@ -146,9 +156,18 @@ begin
 					else
 						ctrlState_next <= idle;
 					end if;
+				elsif adcFifo_wstrb then
+					ctrlState_next <= adcDownSample;
+				end if;
+
+			when adcDownSample =>
+				acStim_enable <= '1';
+				if dwnSampleCnt = nDwnSample then
+					ctrlState_next <= adcReadout;
 				end if;
 
 			when others =>
+				ctrlState_next <= idle;
 				null;
 		end case;
 	end process ctrlState_comb;

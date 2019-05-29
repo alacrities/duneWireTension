@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Thu May  2 18:40:05 2019
+| Date         : Wed May 29 11:00:39 2019
 | Host         : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 | Command      : report_utilization -file vio_ctrl_utilization_synth.rpt -pb vio_ctrl_utilization_synth.pb
 | Design       : vio_ctrl
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |  414 |     0 |    303600 |  0.14 |
 |   LUT as Logic          |  414 |     0 |    303600 |  0.14 |
 |   LUT as Memory         |    0 |     0 |    130800 |  0.00 |
-| Slice Registers         |  916 |     0 |    607200 |  0.15 |
-|   Register as Flip Flop |  916 |     0 |    607200 |  0.15 |
+| Slice Registers         |  928 |     0 |    607200 |  0.15 |
+|   Register as Flip Flop |  928 |     0 |    607200 |  0.15 |
 |   Register as Latch     |    0 |     0 |    607200 |  0.00 |
 | F7 Muxes                |    0 |     0 |    151800 |  0.00 |
 | F8 Muxes                |    0 |     0 |     75900 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 916   |          Yes |       Reset |            - |
+| 928   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,12 +151,12 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  916 |        Flop & Latch |
-| LUT6     |  175 |                 LUT |
-| LUT4     |  150 |                 LUT |
-| LUT3     |   70 |                 LUT |
-| LUT5     |   47 |                 LUT |
-| LUT2     |   10 |                 LUT |
+| FDRE     |  928 |        Flop & Latch |
+| LUT3     |  206 |                 LUT |
+| LUT6     |  181 |                 LUT |
+| LUT5     |   43 |                 LUT |
+| LUT4     |   19 |                 LUT |
+| LUT2     |    8 |                 LUT |
 | LUT1     |    2 |                 LUT |
 +----------+------+---------------------+
 

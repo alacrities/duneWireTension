@@ -67,7 +67,8 @@ COMPONENT vio_ctrl
     probe_out7 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe_out8 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     probe_out9 : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe_out10 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    probe_out10 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    probe_out11 : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -91,7 +92,8 @@ your_instance_name : vio_ctrl
     probe_out7 => probe_out7,
     probe_out8 => probe_out8,
     probe_out9 => probe_out9,
-    probe_out10 => probe_out10
+    probe_out10 => probe_out10,
+    probe_out11 => probe_out11
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

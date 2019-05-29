@@ -6,7 +6,7 @@
   "/home/nate/opt/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../../cores.srcs/sources_1/ip/vio_ctrl/sim/vio_ctrl.vhd" \
+  "../../../../../../firmware/source/cores/ip/vio_ctrl/sim/vio_ctrl.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

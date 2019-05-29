@@ -121,7 +121,8 @@ architecture STRUCT of top_tension_analyzer_vc707 is
       probe_out7  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe_out8  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       probe_out9  : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe_out10 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      probe_out10 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      probe_out11 : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
     );
   END COMPONENT ;
 
@@ -188,6 +189,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal crtl_finish        : std_logic                     := '0';
   signal ctrl_busy        : std_logic                     := '0';
   signal ctrl_busy_del        : std_logic                     := '0';
+  signal adcHScale          : unsigned(4 downto 0)         := (others => '0');
 
 begin
   clk_sysclk_mmcm_inst : clk_sysclk_mmcm
@@ -263,6 +265,13 @@ begin
   compute_n_periods : process (sysclk12_5)
   begin
     if rising_edge(sysclk12_5) then
+      if auto ='1' then
+        freqReq       <= std_logic_vector(ctrl_freqSet);
+        acStim_enable <= ctrl_acStim_enable;
+      else
+        freqReq       <= freqReq_vio;
+        acStim_enable <= '1';
+      end if;
       acStimX200_nPeriod <= (x"007A1200"/ unsigned(freqReq));
       acStim_nPeriod     <= (x"5F5E1000"/unsigned(freqReq));
     end if;
@@ -375,7 +384,8 @@ begin
       probe_out7              => ctrl_stimTime,
       probe_out8              => ctrl_adcFifo_nSamples,
       probe_out9(0)           => ctrl_ctrlStart,
-      probe_out10             => ctrl_adcChSel
+      probe_out10             => ctrl_adcChSel,
+      unsigned(probe_out11)             => adcHScale
     );
 
   wtaController_inst : entity duneWta.wtaController
@@ -392,6 +402,7 @@ begin
       acStim_enable => ctrl_acStim_enable,
 
       acStim_nPeriod => acStim_nPeriod,
+      adcHScale => adcHScale,
 
       adcFifo_af    => fifoAutoDC_pf,
       adcFifo_wen   => ctrl_adcFifo_wen, -- controller enable the writing
@@ -416,13 +427,6 @@ begin
         fifoAutoDC_din <= m_axis_tdata;
       end if;
 
-      if auto ='1' then
-        freqReq       <= std_logic_vector(ctrl_freqSet);
-        acStim_enable <= ctrl_acStim_enable;
-      else
-        freqReq       <= freqReq_vio;
-        acStim_enable <= '1';
-      end if;
       -- start readout process when Programmable Pull
       fifoAutoDC_rdBusy <= (crtl_finish or fifoAutoDC_pf or fifoAutoDC_rdBusy) and
         not fifoAutoDC_ef;
