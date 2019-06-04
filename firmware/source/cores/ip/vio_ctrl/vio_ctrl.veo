@@ -58,6 +58,7 @@ vio_ctrl your_instance_name (
   .clk(clk),                  // input wire clk
   .probe_in0(probe_in0),      // input wire [31 : 0] probe_in0
   .probe_in1(probe_in1),      // input wire [31 : 0] probe_in1
+  .probe_in2(probe_in2),      // input wire [0 : 0] probe_in2
   .probe_out0(probe_out0),    // output wire [31 : 0] probe_out0
   .probe_out1(probe_out1),    // output wire [0 : 0] probe_out1
   .probe_out2(probe_out2),    // output wire [0 : 0] probe_out2

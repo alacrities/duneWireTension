@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Wed May 29 11:03:02 2019
+-- Last update : Wed May 29 15:15:27 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ entity wtaController is
 	);
 end entity wtaController;
 architecture rtl of wtaController is
-	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimRun, adcReadout, adcDownSample);
+	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimHeader4, stimRun, adcReadout, adcDownSample);
 	signal ctrlState, ctrlState_next : ctrlState_type := idle;
 
 	signal stimTimeCnt      : unsigned(31 downto 0) := (others => '0');
@@ -139,6 +139,10 @@ begin
 
 			when stimHeader3 =>
 				adcFifo_headData <= x"8" & acStim_nPeriod(11 downto 0);
+				ctrlState_next    <= stimHeader4;
+
+			when stimHeader4 =>
+				adcFifo_headData <= '1' & nDwnSample(14 downto 0);
 				ctrlState_next    <= stimRun;
 
 			when stimRun =>  -- wait before ADC readout

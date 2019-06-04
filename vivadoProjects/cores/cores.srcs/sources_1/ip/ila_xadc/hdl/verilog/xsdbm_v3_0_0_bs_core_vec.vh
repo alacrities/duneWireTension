@@ -1,6 +1,6 @@
       else if (C_NUM_BSCAN_MASTER_PORTS == 3)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -35,7 +35,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 4)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -70,7 +70,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 5)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -105,7 +105,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 6)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -140,7 +140,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 7)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -175,7 +175,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 8)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -210,7 +210,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 9)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -245,7 +245,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 10)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -280,7 +280,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 11)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -315,7 +315,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 12)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -350,7 +350,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 13)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -385,7 +385,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 14)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -420,7 +420,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 15)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec
@@ -455,7 +455,7 @@
       end
       else if (C_NUM_BSCAN_MASTER_PORTS == 16)
       begin
-        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_0_bscan_switch_vec
+        (* DONT_TOUCH = "TRUE" *)xsdbm_v2_0_bscan_switch_vec
         #(
           .PORTS             (C_NUM_BSCAN_MASTER_PORTS+1)
          ) bscan_switch_vec

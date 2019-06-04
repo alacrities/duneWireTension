@@ -57,6 +57,7 @@ COMPONENT vio_ctrl
     clk : IN STD_LOGIC;
     probe_in0 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe_in1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe_in2 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe_out0 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe_out1 : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe_out2 : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -82,6 +83,7 @@ your_instance_name : vio_ctrl
     clk => clk,
     probe_in0 => probe_in0,
     probe_in1 => probe_in1,
+    probe_in2 => probe_in2,
     probe_out0 => probe_out0,
     probe_out1 => probe_out1,
     probe_out2 => probe_out2,

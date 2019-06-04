@@ -25,6 +25,7 @@ read_ip $proj_sources_dir/cores/ip/vio_ctrl/vio_ctrl.xci
 read_ip $proj_sources_dir/cores/ip/fifo_autoDatacollection/fifo_autoDatacollection.xci
 read_ip $proj_sources_dir/cores/ip/fifo_adcData/fifo_adcData.xci
 read_ip $proj_sources_dir/cores/ip/ila_xadc/ila_xadc.xci
+read_ip $proj_sources_dir/cores/ip/ila_xadc_big/ila_xadc_big.xci
 read_ip $proj_sources_dir/cores/ip/xadc_senseWire/xadc_senseWire.xci
 
 # --------------------------------------------------------------------------

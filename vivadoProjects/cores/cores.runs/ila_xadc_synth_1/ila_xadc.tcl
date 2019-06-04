@@ -17,6 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
+set_param tcl.collectionResultDisplayLimit 0
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7vx485tffg1761-2
@@ -49,7 +51,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
-set_param ips.enableIPCacheLiteLoad 0
+set_param ips.enableIPCacheLiteLoad 1
 
 set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/ila_xadc_synth_1 -new_name ila_xadc -ip [get_ips ila_xadc]]
 

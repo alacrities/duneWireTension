@@ -82,6 +82,7 @@
 `define FAMILY_VIRTEXUPLUSHBM     "virtexuplusHBM"
 `define FAMILY_VIRTEXUPLUS58G     "virtexuplus58g"
 `define FAMILY_ZYNQUPLUS          "zynquplus"
+`define FAMILY_ZYNQUPLUSRFSOC     "zynquplusRFSOC"
 
   //
   // Architecture match type constants, start at 100 so that code can't incorrectly mix up family and match unit type

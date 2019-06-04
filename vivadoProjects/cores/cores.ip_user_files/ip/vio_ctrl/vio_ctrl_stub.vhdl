@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Wed May 29 11:00:39 2019
+-- Date        : Fri May 31 10:28:21 2019
 -- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/vio_ctrl_stub.vhdl
@@ -17,6 +17,7 @@ entity vio_ctrl is
     clk : in STD_LOGIC;
     probe_in0 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe_in1 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe_in2 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe_out0 : out STD_LOGIC_VECTOR ( 31 downto 0 );
     probe_out1 : out STD_LOGIC_VECTOR ( 0 to 0 );
     probe_out2 : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -37,7 +38,7 @@ architecture stub of vio_ctrl is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clk,probe_in0[31:0],probe_in1[31:0],probe_out0[31:0],probe_out1[0:0],probe_out2[0:0],probe_out3[0:0],probe_out4[15:0],probe_out5[15:0],probe_out6[15:0],probe_out7[31:0],probe_out8[15:0],probe_out9[0:0],probe_out10[3:0],probe_out11[4:0]";
+attribute black_box_pad_pin of stub : architecture is "clk,probe_in0[31:0],probe_in1[31:0],probe_in2[0:0],probe_out0[31:0],probe_out1[0:0],probe_out2[0:0],probe_out3[0:0],probe_out4[15:0],probe_out5[15:0],probe_out6[15:0],probe_out7[31:0],probe_out8[15:0],probe_out9[0:0],probe_out10[3:0],probe_out11[4:0]";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "vio,Vivado 2018.3";
 begin

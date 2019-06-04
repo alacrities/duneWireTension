@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Thu May  2 18:56:39 2019
+-- Date        : Fri May 31 10:53:12 2019
 -- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 -- Command     : write_vhdl -force -mode synth_stub
---               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/fifo_autoDatacollection/fifo_autoDatacollection_stub.vhdl
+--               /home/nate/projects/duneWireTension/firmware/source/cores/ip/fifo_autoDatacollection/fifo_autoDatacollection_stub.vhdl
 -- Design      : fifo_autoDatacollection
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7vx485tffg1761-2

@@ -14,42 +14,70 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10705 
+INFO: Helper process launched with PID 14087 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1515.691 ; gain = 70.000 ; free physical = 8435 ; free virtual = 19996
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1515.230 ; gain = 26.000 ; free physical = 3736 ; free virtual = 16490
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'vio_ctrl' [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:59]
-WARNING: [Synth 8-3848] Net sl_iport0 in module/entity vio_ctrl does not have driver. [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:95]
+WARNING: [Synth 8-3848] Net sl_iport0 in module/entity vio_ctrl does not have driver. [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:96]
 INFO: [Synth 8-6155] done synthesizing module 'vio_ctrl' (8#1) [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:59]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Read
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[15]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[14]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[13]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[12]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[11]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[10]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[9]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[8]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[7]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[6]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Bus_Data_in[5]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized7 has unconnected port Internal_cnt_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Read
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[15]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[14]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[13]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[12]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[11]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[10]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[9]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[8]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[7]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[6]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[5]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Bus_Data_in[4]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized6 has unconnected port Internal_cnt_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Read
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[15]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[14]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[13]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[12]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[11]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[10]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[9]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[8]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[7]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[6]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[5]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[4]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[3]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[2]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Bus_Data_in[1]
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized5 has unconnected port Internal_cnt_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Read
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[15]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[14]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[13]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[12]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[11]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[10]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[9]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[8]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[7]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[6]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Bus_Data_in[5]
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized3 has unconnected port Internal_cnt_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized4 has unconnected port Bus_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Read
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[15]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[14]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[13]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[12]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[11]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[10]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[9]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[8]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[7]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[6]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[5]
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Bus_Data_in[4]
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized2 has unconnected port Internal_cnt_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Bus_rst
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Read
+WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Internal_cnt_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Bus_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Read
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Bus_Data_in[15]
@@ -68,11 +96,7 @@ WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unc
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Bus_Data_in[2]
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Bus_Data_in[1]
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized0 has unconnected port Internal_cnt_rst
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Bus_rst
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Read
-WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one__parameterized1 has unconnected port Internal_cnt_rst
 WARNING: [Synth 8-3331] design vio_v3_0_19_probe_out_one has unconnected port Bus_rst
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in2[0]
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in3[0]
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in4[0]
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in5[0]
@@ -97,33 +121,9 @@ WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in23[0
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in24[0]
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in25[0]
 WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in26[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in27[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in28[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in29[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in30[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in31[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in32[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in33[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in34[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in35[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in36[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in37[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in38[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in39[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in40[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in41[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in42[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in43[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in44[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in45[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in46[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in47[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in48[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in49[0]
-WARNING: [Synth 8-3331] design vio_v3_0_19_vio has unconnected port probe_in50[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1569.445 ; gain = 123.754 ; free physical = 8441 ; free virtual = 20002
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1569.984 ; gain = 80.754 ; free physical = 3722 ; free virtual = 16490
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -132,51 +132,51 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[36] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[35] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[34] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[33] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[32] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[31] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[30] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[29] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[28] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[27] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[26] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[25] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[24] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[23] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[22] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[21] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[20] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[19] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[18] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[17] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[16] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[15] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[14] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[13] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[12] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[11] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[10] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[9] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[8] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[7] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[6] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[5] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[4] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[3] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[2] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[1] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
-WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:885]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[36] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[35] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[34] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[33] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[32] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[31] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[30] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[29] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[28] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[27] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[26] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[25] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[24] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[23] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[22] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[21] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[20] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[19] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[18] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[17] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[16] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[15] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[14] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[13] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[12] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[11] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[10] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[9] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[8] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[7] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[6] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[5] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[4] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[3] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[2] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[1] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
+WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0 [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/synth/vio_ctrl.v:886]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1569.445 ; gain = 123.754 ; free physical = 8443 ; free virtual = 20005
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1569.984 ; gain = 80.754 ; free physical = 3725 ; free virtual = 16493
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1569.445 ; gain = 123.754 ; free physical = 8443 ; free virtual = 20005
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1569.984 ; gain = 80.754 ; free physical = 3725 ; free virtual = 16493
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -189,27 +189,27 @@ Parsing XDC File [/home/nate/projects/duneWireTension/firmware/source/cores/ip/v
 Finished Parsing XDC File [/home/nate/projects/duneWireTension/firmware/source/cores/ip/vio_ctrl/vio_ctrl.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.844 ; gain = 0.000 ; free physical = 8030 ; free virtual = 19598
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.367 ; gain = 0.000 ; free physical = 3342 ; free virtual = 16096
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.848 ; gain = 0.000 ; free physical = 8030 ; free virtual = 19597
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2043.848 ; gain = 0.004 ; free physical = 8030 ; free virtual = 19597
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.371 ; gain = 0.000 ; free physical = 3342 ; free virtual = 16096
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2043.371 ; gain = 0.004 ; free physical = 3341 ; free virtual = 16095
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 2043.848 ; gain = 598.156 ; free physical = 8115 ; free virtual = 19683
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 2043.371 ; gain = 554.141 ; free physical = 3409 ; free virtual = 16185
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1761-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 2043.848 ; gain = 598.156 ; free physical = 8115 ; free virtual = 19683
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 2043.371 ; gain = 554.141 ; free physical = 3409 ; free virtual = 16185
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 2043.848 ; gain = 598.156 ; free physical = 8115 ; free virtual = 19683
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 2043.371 ; gain = 554.141 ; free physical = 3409 ; free virtual = 16185
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "wr_probe_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "wr_probe_out" won't be mapped to RAM because it is too sparse
@@ -231,7 +231,7 @@ INFO: [Synth 8-5546] ROM "wr_en_int0" won't be mapped to RAM because it is too s
 INFO: [Synth 8-5546] ROM "rd_en_int0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "rd_en_int0" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 8107 ; free virtual = 19675
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3422 ; free virtual = 16176
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -247,18 +247,19 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
 	   2 Input      2 Bit       Adders := 2     
+	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
 	              128 Bit    Registers := 1     
-	               64 Bit    Registers := 5     
+	               65 Bit    Registers := 5     
 	               32 Bit    Registers := 2     
-	               16 Bit    Registers := 27    
+	               16 Bit    Registers := 28    
 	               13 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 30    
+	                1 Bit    Registers := 31    
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 4     
 	   6 Input     13 Bit        Muxes := 1     
@@ -275,10 +276,17 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
-	               64 Bit    Registers := 5     
+	               65 Bit    Registers := 5     
 	               16 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
+Module vio_v3_0_19_probe_width 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 Module vio_v3_0_19_probe_out_one 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -303,11 +311,36 @@ Detailed RTL Component Info :
 Module vio_v3_0_19_probe_out_one__parameterized2 
 Detailed RTL Component Info : 
 +---Registers : 
+	               16 Bit    Registers := 2     
+Module vio_v3_0_19_probe_out_one__parameterized3 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+Module vio_v3_0_19_probe_out_one__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module vio_v3_0_19_probe_out_one__parameterized5 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module vio_v3_0_19_probe_out_one__parameterized6 
+Detailed RTL Component Info : 
++---Registers : 
 	               16 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
-Module vio_v3_0_19_probe_out_one__parameterized3 
+Module vio_v3_0_19_probe_out_one__parameterized7 
 Detailed RTL Component Info : 
 +---Registers : 
 	               16 Bit    Registers := 1     
@@ -322,7 +355,7 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 14    
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 13    
-Module vio_v3_0_19_probe_width 
+Module vio_v3_0_19_probe_width__parameterized0 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      3 Bit       Adders := 1     
@@ -489,14 +522,30 @@ INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_ALL_INST/addr_p1_reg[0]' (
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_ALL_INST/addr_p1_reg[1]' (FD) to 'inst/DECODER_INST/xsdb_addr_2_0_p1_reg[1]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_ALL_INST/addr_p1_reg[2]' (FD) to 'inst/DECODER_INST/xsdb_addr_2_0_p1_reg[2]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[0]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[0]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[1]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[2]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[2]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[2]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[3]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[4]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[8]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[5]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[5]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[15]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[6]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[6]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[15]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\PROBE_OUT_WIDTH_INST/probe_width_int_reg[7] )
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[7]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[15]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[8]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[8]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[9]'
 INFO: [Synth 8-3886] merging instance 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[9]' (FD) to 'inst/PROBE_OUT_WIDTH_INST/probe_width_int_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[9]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[10]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[11]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[13]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[15]'
+INFO: [Synth 8-3886] merging instance 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[14]' (FDR) to 'inst/PROBE_IN_WIDTH_INST/probe_width_int_reg[15]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\PROBE_IN_WIDTH_INST/probe_width_int_reg[15] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 8081 ; free virtual = 19653
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3391 ; free virtual = 16157
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -508,13 +557,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7966 ; free virtual = 19538
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3278 ; free virtual = 16036
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7965 ; free virtual = 19537
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3277 ; free virtual = 16036
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -526,7 +575,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7963 ; free virtual = 19535
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3273 ; free virtual = 16032
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -587,7 +636,7 @@ WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[2] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[1] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -600,7 +649,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -612,25 +661,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -646,65 +695,69 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |LUT1 |     2|
-|2     |LUT2 |     8|
-|3     |LUT3 |   206|
-|4     |LUT4 |    19|
-|5     |LUT5 |    43|
-|6     |LUT6 |   181|
-|7     |FDRE |   928|
+|1     |LUT1 |     3|
+|2     |LUT2 |    11|
+|3     |LUT3 |    68|
+|4     |LUT4 |   154|
+|5     |LUT5 |    36|
+|6     |LUT6 |   190|
+|7     |FDRE |   910|
+|8     |FDSE |    26|
 +------+-----+------+
 
 Report Instance Areas: 
 +------+----------------------------------------+--------------------------------------------+------+
 |      |Instance                                |Module                                      |Cells |
 +------+----------------------------------------+--------------------------------------------+------+
-|1     |top                                     |                                            |  1387|
-|2     |  inst                                  |vio_v3_0_19_vio                             |  1387|
+|1     |top                                     |                                            |  1398|
+|2     |  inst                                  |vio_v3_0_19_vio                             |  1398|
 |3     |    U_XSDB_SLAVE                        |xsdbs_v1_0_2_xsdbs                          |   248|
-|4     |    DECODER_INST                        |vio_v3_0_19_decoder                         |    95|
-|5     |    PROBE_IN_INST                       |vio_v3_0_19_probe_in_one                    |   547|
-|6     |    PROBE_OUT_ALL_INST                  |vio_v3_0_19_probe_out_all                   |   463|
-|7     |      \G_PROBE_OUT[0].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one                   |   104|
-|8     |      \G_PROBE_OUT[10].PROBE_OUT0_INST  |vio_v3_0_19_probe_out_one__parameterized2   |     8|
-|9     |      \G_PROBE_OUT[11].PROBE_OUT0_INST  |vio_v3_0_19_probe_out_one__parameterized3   |    10|
-|10    |      \G_PROBE_OUT[1].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0   |     3|
-|11    |      \G_PROBE_OUT[2].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0_0 |     3|
-|12    |      \G_PROBE_OUT[3].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0_1 |     3|
-|13    |      \G_PROBE_OUT[4].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized1   |    32|
-|14    |      \G_PROBE_OUT[5].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized1_2 |    32|
-|15    |      \G_PROBE_OUT[6].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized1_3 |    32|
-|16    |      \G_PROBE_OUT[7].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one_4                 |   104|
-|17    |      \G_PROBE_OUT[8].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized1_5 |    32|
-|18    |      \G_PROBE_OUT[9].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0_6 |     3|
-|19    |    PROBE_OUT_WIDTH_INST                |vio_v3_0_19_probe_width                     |    18|
+|4     |    DECODER_INST                        |vio_v3_0_19_decoder                         |    94|
+|5     |    PROBE_IN_INST                       |vio_v3_0_19_probe_in_one                    |   555|
+|6     |    PROBE_IN_WIDTH_INST                 |vio_v3_0_19_probe_width                     |     3|
+|7     |    PROBE_OUT_ALL_INST                  |vio_v3_0_19_probe_out_all                   |   464|
+|8     |      \G_PROBE_OUT[0].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one                   |   105|
+|9     |      \G_PROBE_OUT[10].PROBE_OUT0_INST  |vio_v3_0_19_probe_out_one__parameterized6   |     8|
+|10    |      \G_PROBE_OUT[11].PROBE_OUT0_INST  |vio_v3_0_19_probe_out_one__parameterized7   |    10|
+|11    |      \G_PROBE_OUT[1].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0   |     3|
+|12    |      \G_PROBE_OUT[2].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0_0 |     3|
+|13    |      \G_PROBE_OUT[3].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized0_1 |     3|
+|14    |      \G_PROBE_OUT[4].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized1   |    32|
+|15    |      \G_PROBE_OUT[5].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized2   |    32|
+|16    |      \G_PROBE_OUT[6].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized3   |    32|
+|17    |      \G_PROBE_OUT[7].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized4   |   107|
+|18    |      \G_PROBE_OUT[8].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized3_2 |    32|
+|19    |      \G_PROBE_OUT[9].PROBE_OUT0_INST   |vio_v3_0_19_probe_out_one__parameterized5   |     3|
+|20    |    PROBE_OUT_WIDTH_INST                |vio_v3_0_19_probe_width__parameterized0     |    18|
 +------+----------------------------------------+--------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 7977 ; free virtual = 19534
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3259 ; free virtual = 16031
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 291 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 2043.852 ; gain = 123.758 ; free physical = 8031 ; free virtual = 19588
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 2043.852 ; gain = 598.160 ; free physical = 8042 ; free virtual = 19599
+Synthesis finished with 0 errors, 0 critical warnings and 290 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 2043.375 ; gain = 80.758 ; free physical = 3313 ; free virtual = 16086
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2043.375 ; gain = 554.145 ; free physical = 3324 ; free virtual = 16097
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.852 ; gain = 0.000 ; free physical = 7965 ; free virtual = 19522
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.375 ; gain = 0.000 ; free physical = 3260 ; free virtual = 16019
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-155 Infos, 175 Warnings, 0 Critical Warnings and 0 Errors encountered.
+171 Infos, 175 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 2043.852 ; gain = 627.109 ; free physical = 8020 ; free virtual = 19577
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.852 ; gain = 0.000 ; free physical = 8020 ; free virtual = 19577
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 2043.375 ; gain = 583.094 ; free physical = 3315 ; free virtual = 16074
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2043.375 ; gain = 0.000 ; free physical = 3315 ; free virtual = 16074
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/vio_ctrl_synth_1/vio_ctrl.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP vio_ctrl, cache-ID = ed993da82f5000dc
-INFO: [Coretcl 2-1174] Renamed 18 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2067.863 ; gain = 0.000 ; free physical = 8018 ; free virtual = 19577
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP vio_ctrl, cache-ID = 69f0dce10edf8ef0
+INFO: [Coretcl 2-1174] Renamed 19 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2067.387 ; gain = 0.000 ; free physical = 3299 ; free virtual = 16074
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/nate/projects/duneWireTension/vivadoProjects/cores/cores.runs/vio_ctrl_synth_1/vio_ctrl.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file vio_ctrl_utilization_synth.rpt -pb vio_ctrl_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May 29 11:00:39 2019...
+INFO: [Common 17-206] Exiting Vivado at Fri May 31 10:28:21 2019...

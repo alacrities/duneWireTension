@@ -1,3 +1,7 @@
+2018.3:
+ * Version 6.2 (Rev. 8)
+ * General: Supported devices and production status are now determined automatically, to simplify support for future devices
+
 2018.2:
  * Version 6.2 (Rev. 7)
  * General: Added device support for virtexuplus58gf family
@@ -35,14 +39,15 @@
  * Revision change in one or more subcores
 
 2016.2:
- * Version 6.1
- * No changes
+ * Version 6.1 (Rev. 1)
+ * Revision change in one or more subcores
 
 2016.1:
  * Version 6.1
  * Updated the IP to support 2 Windows & 1 Sample count configuration
  * Number of comparator increased from 1 to 16 in basic mode and 4 to 16 in advanced mode
  * Updated probe data width register
+ * Revision change in one or more subcores
 
 2015.4.2:
  * Version 6.0 (Rev. 1)
@@ -55,11 +60,13 @@
 2015.4:
  * Version 6.0 (Rev. 1)
  * No change
+ * Revision change in one or more subcores
 
 2015.3:
  * Version 6.0
  * Fixed Timing10 DRC violations in ILA IP.
  * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+ * Revision change in one or more subcores
 
 2015.2.1:
  * Version 5.1 (Rev. 1)

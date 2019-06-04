@@ -1,8 +1,8 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
--- Date        : Wed Apr 10 13:13:36 2019
--- Host        : localhost.localdomain running 64-bit Fedora release 29 (Twenty Nine)
+-- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+-- Date        : Wed May 29 15:06:30 2019
+-- Host        : lt2 running 64-bit CentOS Linux release 7.6.1810 (Core)
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/nate/projects/duneWireTension/vivadoProjects/cores/cores.srcs/sources_1/ip/ila_xadc/ila_xadc_stub.vhdl
 -- Design      : ila_xadc
@@ -28,6 +28,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "clk,probe0[0:0],probe1[15:0],probe2[4:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "ila,Vivado 2018.2";
+attribute x_core_info of stub : architecture is "ila,Vivado 2018.3";
 begin
 end;

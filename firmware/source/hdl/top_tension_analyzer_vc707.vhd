@@ -106,11 +106,22 @@ architecture STRUCT of top_tension_analyzer_vc707 is
     );
   END COMPONENT ;
 
+  COMPONENT ila_xadc_big
+
+    PORT (
+      clk    : IN STD_LOGIC;
+      probe0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      probe1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      probe2 : IN STD_LOGIC_VECTOR(4 DOWNTO 0)
+    );
+  END COMPONENT ;
+
   COMPONENT vio_ctrl
     PORT (
       clk         : IN  STD_LOGIC;
       probe_in0   : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe_in1   : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe_in2   : IN  STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe_out0  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe_out1  : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe_out2  : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -190,6 +201,7 @@ architecture STRUCT of top_tension_analyzer_vc707 is
   signal ctrl_busy        : std_logic                     := '0';
   signal ctrl_busy_del        : std_logic                     := '0';
   signal adcHScale          : unsigned(4 downto 0)         := (others => '0');
+  signal adcAutoDC_strb    : std_logic                     := '0';
 
 begin
   clk_sysclk_mmcm_inst : clk_sysclk_mmcm
@@ -284,12 +296,12 @@ begin
       acStim_periodCnt     <= acStim_periodCnt +1;
       acStimX200_periodCnt <= acStimX200_periodCnt +1;
 
-      if acStim_periodCnt = acStim_nPeriod then
+      if acStim_periodCnt >= acStim_nPeriod then
         acStim           <= not acStim;
         acStim_periodCnt <= (acStim_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
 
-      if acStimX200_periodCnt = acStimX200_nPeriod then
+      if acStimX200_periodCnt >= acStimX200_nPeriod then
         acStimX200           <= not acStimX200;
         acStimX200_periodCnt <= (acStimX200_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
@@ -374,6 +386,7 @@ begin
       --probe_in1(31 downto 24)  => x"00",
       probe_in1(31 downto 0) => std_logic_vector(acStimX200_nPeriod),
       --probe_out0(31 downto 24) => open,
+      probe_in2(0) => ctrl_busy,
       probe_out0(31 downto 0) => freqReq_vio,
       probe_out1(0)           => m_axis_resetn,
       probe_out2(0)           => m_axis_tready,
@@ -406,7 +419,7 @@ begin
 
       adcFifo_af    => fifoAutoDC_pf,
       adcFifo_wen   => ctrl_adcFifo_wen, -- controller enable the writing
-      adcFifo_wstrb => fifoAutoDC_wen,   -- feedback  to the controller that a write has occurred  
+      adcFifo_wstrb => adcAutoDC_strb,   -- feedback  to the controller that the ADC has sampled the selected channel 
 
       adcFifo_headData => ctrl_adcFifo_headData,
 
@@ -423,6 +436,7 @@ begin
         fifoAutoDC_wen <= '1';
         fifoAutoDC_din <= std_logic_vector(ctrl_adcFifo_headData);
       else
+        adcAutoDC_strb <= fifo_adcData_wen(to_integer(unsigned(ctrl_adcChSel)));
         fifoAutoDC_wen <= (fifo_adcData_wen(to_integer(unsigned(ctrl_adcChSel))) and ctrl_adcFifo_wen);
         fifoAutoDC_din <= m_axis_tdata;
       end if;
@@ -430,7 +444,7 @@ begin
       -- start readout process when Programmable Pull
       fifoAutoDC_rdBusy <= (crtl_finish or fifoAutoDC_pf or fifoAutoDC_rdBusy) and
         not fifoAutoDC_ef;
-
+        --trigger a readout at end of test
         ctrl_busy_del <= ctrl_busy;
         crtl_finish <=  ctrl_busy_del and not ctrl_busy;
 
@@ -452,7 +466,7 @@ begin
 
   fifoAutoDC_ren <= fifoAutoDC_rdBusy and not fifoAutoDC_ef;
 
-  ila_xadc_fifoAutoSparse : ila_xadc
+  ila_xadc_fifoAutoSparse : ila_xadc_big
     PORT MAP (
       clk       => sysclk100,
       probe0(0) => fifoAutoDC_ren,
