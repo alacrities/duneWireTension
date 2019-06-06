@@ -72,11 +72,14 @@ proc setup {} {
     set firmware_dir $scriptdir/../
     set proj_sources_dir $firmware_dir/source/
 
-        set top_module "top_tension_analyzer_vc707"
-        set proj_name "tension_analyzer_vc707"
-        set board_part "xilinx.com:vc707:part0:1.1"
-        set part "xc7vx485tffg1761-2"
+        set top_module "top_tension_analyzer"
+        set proj_name "tension_analyzer"
+        set part "xc7z020clg400-2"
 
+#        set top_module "top_tension_analyzer_vc707"
+#        set proj_name "tension_analyzer_vc707"
+#        set board_part "xilinx.com:vc707:part0:1.1"
+#        set part "xc7vx485tffg1761-2"
 
     set_param general.maxThreads 8
     set post_route_wns xxx
@@ -101,9 +104,11 @@ proc readSource {} {
     puts "#                    Read Source                                 #"
     puts "##################################################################\n"
 
-        create_project -in_memory -part $part
-        set_property board_part $board_part [current_project]
-        source $scriptdir/implementation/readVc707DwaSource.tcl
+        # board part and in memory project mey be needed with BSP 
+        # create_project -in_memory -part $part
+        # set_property board_part $board_part [current_project]
+        # source $scriptdir/implementation/readVc707DwaSource.tcl
+        source $scriptdir/implementation/readMicrozedWtaSource.tcl
 }
 
 proc synth {} {

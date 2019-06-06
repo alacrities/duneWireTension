@@ -295,7 +295,7 @@ begin
       -- Default Increment
       acStim_periodCnt     <= acStim_periodCnt +1;
       acStimX200_periodCnt <= acStimX200_periodCnt +1;
-
+      -- need the > to catch when the nPeriod decreases at the wrong time
       if acStim_periodCnt >= acStim_nPeriod then
         acStim           <= not acStim;
         acStim_periodCnt <= (acStim_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
