@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Tue Jun 18 17:24:37 2019
+-- Last update : Fri Jun 21 12:44:48 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ COMPONENT blkMem_mainsAvg
 END COMPONENT;
 
 architecture rtl of wtaController is
-	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimHeader4, stimRun, adcReadout, adcDownSample);
+	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimHeader4, setAcEnable, setMainsAvg, stimRun, adcReadout, adcDownSample);
 	signal ctrlState, ctrlState_next : ctrlState_type := idle;
 
 	signal stimTimeCnt      : unsigned(31 downto 0) := (others => '0');
@@ -93,7 +93,7 @@ begin
 					freqSet       <= x"000"& freqMin & x"0";
 					ctrlStart_del <= ctrlStart;
 					--turn off stimulus 
-					acStim_enable <=  '0';
+					acStim_enable <= '0';
 
 
 				when stimPrep => -- increment frequency and reset counters
@@ -103,13 +103,16 @@ begin
 					adcFifo_wstrbCnt <= (others => '0');
 
 				when stimRun => -- count the number of clock cycles we stim before ADC readout
-					stimTimeCnt <= stimTimeCnt+1;
+					stimTimeCnt   <= stimTimeCnt+1;
 					acStim_enable <= '1'when not mainsMinus_enable or mainsAvg_done else '0';
 
 				when adcReadout => -- count the number of samples that go into the readout FIFO
 					if adcFifo_wstrb then
 						adcFifo_wstrbCnt <= adcFifo_wstrbCnt+1;
 						dwnSampleCnt     <= (others => '0'); -- reset the downsample count
+					end if;
+					if adcFifo_nSamplesDone and not mainsAvg_done then
+						mainsAvg_cnt <= mainsAvg_cnt+1;
 					end if;
 
 				when adcDownSample => -- count the down sample
@@ -125,6 +128,8 @@ begin
 
 	ctrlState_comb : process (all)
 	begin
+		adcFifo_nSamplesDone  <= adcFifo_wstrbCnt = adcFifo_nSamples;
+		mainsAvg_done <= mainsAvg_cnt = mainsAvg_n;
 		ctrlState_next       <= ctrlState;
 		adcFifo_wen          <= '0';
 		adcFifo_headData(15) <= '0';
@@ -176,12 +181,21 @@ begin
 				end if;
 
 			when adcReadout =>
-				adcFifo_wen   <= '1'when mainsMinus_enable or mainsAvg_done else '0';
-				if adcFifo_wstrbCnt = adcFifo_nSamples then
-					if freqSet < (freqMax & x"0") then
-						ctrlState_next <= stimPrep;
-					else
-						ctrlState_next <= idle;
+				adcFifo_wen <= '1'when mainsMinus_enable or mainsAvg_done else '0';
+				if adcFifo_nSamplesDone then  --we have all of the contiguous samples
+					if acStim_enable then -- we have finished sampling this freq and can move on
+						if freqSet < (freqMax & x"0") then
+							ctrlState_next <= stimPrep;
+						else
+							ctrlState_next <= idle;
+						end if;
+					else --when the acstim is not enabled we must be collecting mains avg
+						if mainsAvg_done then  -- finished the mains averaging now get the samples with the acstim
+							ctrlState_next <= stimRun;
+						else
+							ctrlState_next <= idle;
+						end if;
+					
 					end if;
 				elsif adcFifo_wstrb then
 					ctrlState_next <= adcDownSample;
