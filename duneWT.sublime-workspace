@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"addc",
+				"adcAutoDc_data"
+			],
+			[
 				"ac",
 				"acStim_nPeriod"
 			],
@@ -52,28 +56,26 @@
 	"buffers":
 	[
 		{
-			"file": "firmware/scripts/implementation/build.tcl",
 			"settings":
 			{
-				"buffer_size": 10894,
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/source/hdl/top_tension_analyzer.vhd",
+			"settings":
+			{
+				"buffer_size": 18692,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "firmware/source/hdl/top_tension_analyzer_vc707.vhd",
+			"file": "firmware/source/hdl/wtaController.vhd",
 			"settings":
 			{
-				"buffer_size": 6965,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "firmware/source/constraints/system.xdc",
-			"settings":
-			{
-				"buffer_size": 412,
+				"buffer_size": 7945,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -163,6 +165,10 @@
 	],
 	"file_history":
 	[
+		"/home/nate/projects/duneWireTension/firmware/source/hdl/wtaController.vhd",
+		"/home/nate/projects/duneWireTension/firmware/scripts/implementation/build.tcl",
+		"/home/nate/projects/duneWireTension/firmware/source/hdl/top_tension_analyzer_vc707.vhd",
+		"/home/nate/projects/duneWireTension/firmware/source/constraints/system.xdc",
 		"/home/nate/.bashrc",
 		"/home/nate/projects/duneWireTension/firmware/scripts/implementation/readVc707DwaSource.tcl",
 		"/home/nate/projects/duneWireTension/firmware/source/cores/ip_horx/dsp48_add_mult_no_out_reg/doc/xbip_dsp48_macro_v3_0_changelog.txt",
@@ -225,6 +231,35 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mainsMinus_enable",
+			"mainsAvg_dout",
+			"mainsAvg_wen",
+			"mainsAvg_din",
+			"adcAutoDC_wstrb",
+			"mainsAvg_we",
+			"mainsAvg_din",
+			"adcAutoDc_headData",
+			"ctrl_adcFifo_headData",
+			"adcAutoDC_din",
+			"adcAutoDC_strb",
+			"ctrl_adcFifo_wen",
+			"fifoAutoDC_pf",
+			"adcAutoDC_strb",
+			"adcFifo_",
+			"adcFifo_wstrb",
+			"ctrl_adcChSel",
+			"fifoAutoDC_din",
+			"ctrl_adcChSel",
+			"adc_wstrbCnt",
+			"adc_nSamplesDone",
+			"adc_wstrbCnt",
+			"acStim_enable",
+			"adcFifo_wstrb",
+			"setMainsAvg",
+			"mainsAvg_n",
+			"adcFifo_nSamples",
+			"adcFifo_wstrbCnt",
+			"adcFifo_nSamplesDone",
 			"31",
 			"freqReq",
 			"),",
@@ -299,31 +334,29 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "firmware/scripts/implementation/build.tcl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10894,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2165,
-								2165
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/TCL/Tcl.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -334,58 +367,65 @@
 				},
 				{
 					"buffer": 1,
-					"file": "firmware/source/hdl/top_tension_analyzer_vc707.vhd",
+					"file": "firmware/source/hdl/top_tension_analyzer.vhd",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6965,
+						"buffer_size": 18692,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6543,
-								6543
+								16765,
+								16765
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8623.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "firmware/source/hdl/wtaController.vhd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1205,
+								1205
 							]
 						],
 						"settings":
 						{
 							"spell_check": true,
 							"syntax": "Packages/VHDL Mode/Syntax/VHDL.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "firmware/source/constraints/system.xdc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 412,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								411,
-								411
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -396,7 +436,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -411,11 +451,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -433,7 +480,7 @@
 	"project": "duneWT.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -442,6 +489,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"top",
+				"firmware/source/hdl/top_tension_analyzer.vhd"
+			],
+			[
+				"controller",
+				"firmware/source/hdl/wtaController.vhd"
+			],
+			[
+				".vhd",
+				"firmware/source/hdl/wtaController.vhd"
+			],
 			[
 				"vc707",
 				"firmware/source/constraints/vc707_pin.xdc"
@@ -663,7 +722,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

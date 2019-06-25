@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Fri Jun 21 12:44:48 2019
+-- Last update : Mon Jun 24 22:31:23 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ entity wtaController is
 		freqStep : in unsigned(15 downto 0) := (others => '0');
 
 		stimTime         : in unsigned(31 downto 0) := (others => '0');
-		adcFifo_nSamples : in unsigned(15 downto 0) := (others => '0');
+		adc_nSamples : in unsigned(15 downto 0) := (others => '0');
 
 
 		ctrlStart : in std_logic := '0';
@@ -44,11 +44,16 @@ entity wtaController is
 		acStim_nPeriod : in unsigned(31 downto 0) := (others => '0');
 		adcHScale      : in unsigned(4 downto 0)  := (others => '0');
 
-		adcFifo_af    : in  std_logic := '0';
-		adcFifo_wen   : out std_logic := '0';
-		adcFifo_wstrb : in  std_logic := '0';
+		adcAutoDc_af    : in  std_logic := '0';
+		adcAutoDc_wen   : out std_logic := '0';
+		adcAutoDC_dValid : in  std_logic := '0';
 
-		adcFifo_headData : out unsigned(15 downto 0) := (others => '0');
+		adcAutoDc_headData : out unsigned(15 downto 0) := (others => '0');
+		adcAutoDc_data : in unsigned(15 downto 0) := (others => '0');
+
+		mainsMinus_enable : in std_logic             := '0';
+		mainsMinus_data: out unsigned(15 downto 0) := (others => '0');
+		mainsMinus_wen : out std_logic             := '0';
 
 		busy  : out std_logic := '0';
 		reset : in  std_logic := '0';
@@ -67,11 +72,11 @@ COMPONENT blkMem_mainsAvg
 END COMPONENT;
 
 architecture rtl of wtaController is
-	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimHeader4, setAcEnable, setMainsAvg, stimRun, adcReadout, adcDownSample);
+	type ctrlState_type is (idle, stimPrep, stimHeader1, stimHeader2, stimHeader3, stimHeader4, mainsAvgLoop, mainsAvgInc, stimRun, adcReadout, adcDownSample);
 	signal ctrlState, ctrlState_next : ctrlState_type := idle;
 
 	signal stimTimeCnt      : unsigned(31 downto 0) := (others => '0');
-	signal adcFifo_wstrbCnt : unsigned(31 downto 0) := (others => '0');
+	signal adc_wstrbCnt : unsigned(31 downto 0) := (others => '0');
 	signal nDwnSample       : unsigned(31 downto 0) := (others => '0');
 	signal dwnSampleCnt     : unsigned(31 downto 0) := (others => '0');
 	signal ctrlStart_del    : std_logic             := '0';
@@ -100,23 +105,26 @@ begin
 					             -- the freqSet will need ~4 clock cycles to update the period counter
 					freqSet          <= freqSet+freqStep;
 					stimTimeCnt      <= (others => '0');
-					adcFifo_wstrbCnt <= (others => '0');
+					adc_wstrbCnt <= (others => '0');
 
 				when stimRun => -- count the number of clock cycles we stim before ADC readout
 					stimTimeCnt   <= stimTimeCnt+1;
-					acStim_enable <= '1'when not mainsMinus_enable or mainsAvg_done else '0';
+					acStim_enable <= '1'when mainsAvg_done else '0';
 
 				when adcReadout => -- count the number of samples that go into the readout FIFO
-					if adcFifo_wstrb then
-						adcFifo_wstrbCnt <= adcFifo_wstrbCnt+1;
+					if adcAutoDC_dValid then
+						adc_wstrbCnt <= adc_wstrbCnt+1;
 						dwnSampleCnt     <= (others => '0'); -- reset the downsample count
 					end if;
-					if adcFifo_nSamplesDone and not mainsAvg_done then
-						mainsAvg_cnt <= mainsAvg_cnt+1;
-					end if;
+
+				when mainsAvg_cnt => -- count the number of samples that go into the readout FIFO
+					mainsAvg_cnt <= mainsAvg_cnt+1;
+					adc_wstrbCnt <= (others => '0'); -- reset the ADC sample counter
+
+				when mainsAvgLoop =>
 
 				when adcDownSample => -- count the down sample
-					if adcFifo_wstrb then
+					if adcAutoDC_dValid then
 						dwnSampleCnt <= dwnSampleCnt+1;
 					end if;
 
@@ -128,12 +136,12 @@ begin
 
 	ctrlState_comb : process (all)
 	begin
-		adcFifo_nSamplesDone  <= adcFifo_wstrbCnt = adcFifo_nSamples;
-		mainsAvg_done <= mainsAvg_cnt = mainsAvg_n;
+		scanDone <= freqSet > (freqMax & x"0");
+		adc_nSamplesDone  <= adc_wstrbCnt = adc_nSamples;
+		mainsAvg_active <= mainsAvg_enable and (mainsAvg_cnt < mainsAvg_nAvg);
 		ctrlState_next       <= ctrlState;
-		adcFifo_wen          <= '0';
-		adcFifo_headData(15) <= '0';
-		acStim_enable        <= '0';
+		adcAutoDc_wen          <= '0';
+		adcAutoDc_headData(15) <= '0';
 		busy                 <= '1';
 		nDwnSample           <= shift_right(acStim_nPeriod,to_integer(adcHScale));
 		case (ctrlState) is
@@ -145,30 +153,30 @@ begin
 				busy <= '0';
 
 			when stimPrep => --wait for FIFO to be ready
-				if not adcFifo_af then
+				if not adcAutoDc_af then
 					ctrlState_next <= stimHeader1;
 				end if;
 
 			when stimHeader1 =>              -- write header info
-				adcFifo_headData <= x"CAFE"; -- CAFE with header flag
+				adcAutoDc_headData <= x"CAFE"; -- CAFE with header flag
 				ctrlState_next   <= stimHeader2;
 
 			when stimHeader2 =>
-				adcFifo_headData <= x"8" & acStim_nPeriod(23 downto 12);
+				adcAutoDc_headData <= x"8" & acStim_nPeriod(23 downto 12);
 				ctrlState_next   <= stimHeader3;
 
 			when stimHeader3 =>
-				adcFifo_headData <= x"8" & acStim_nPeriod(11 downto 0);
+				adcAutoDc_headData <= x"8" & acStim_nPeriod(11 downto 0);
 				ctrlState_next   <= stimHeader4;
 
 			when stimHeader4 =>
-				adcFifo_headData <= '1' & nDwnSample(14 downto 0);
+				adcAutoDc_headData <= '1' & nDwnSample(14 downto 0);
 				ctrlState_next   <= stimRun;
 
 			when stimRun => -- wait before ADC readout
 
 				if stimTime = stimTimeCnt then
-					if mainsMinus_enable then
+					if mainsAvg_enable then
 						ctrlState_next <= mainsSync;
 					else
 						ctrlState_next <= adcReadout;
@@ -181,25 +189,32 @@ begin
 				end if;
 
 			when adcReadout =>
-				adcFifo_wen <= '1'when mainsMinus_enable or mainsAvg_done else '0';
-				if adcFifo_nSamplesDone then  --we have all of the contiguous samples
-					if acStim_enable then -- we have finished sampling this freq and can move on
-						if freqSet < (freqMax & x"0") then
+				adcAutoDc_wen <= '1'when mainsMinus_enable or mainsAvg_done else '0';
+				if adc_nSamplesDone then  --we have all of the contiguous samples
+					if mainsAvg_active then -- we have finished sampling this freq and can move on
+						ctrlState_next <= mainsAvgInc;
+					else 
+						if scanDone then
+							ctrlState_next <= idle;
+						else
 							ctrlState_next <= stimPrep;
-						else
-							ctrlState_next <= idle;
 						end if;
-					else --when the acstim is not enabled we must be collecting mains avg
-						if mainsAvg_done then  -- finished the mains averaging now get the samples with the acstim
-							ctrlState_next <= stimRun;
-						else
-							ctrlState_next <= idle;
-						end if;
-					
 					end if;
-				elsif adcFifo_wstrb then
+				elsif adcAutoDC_dValid then
 					ctrlState_next <= adcDownSample;
 				end if;
+
+			when mainsAvgInc =>
+				-- update the number of averaging loops
+				-- the mainsAvgLoop state needs the updated value
+					ctrlState_next <= mainsAvgLoop;
+
+			when mainsAvgLoop =>
+			if mainsAvg_active then -- still averaging
+				ctrlState_next <= mainsSync;
+			else -- finished averaging now get the stimulus enabled samples
+				ctrlState_next <= stimRun;
+			end if;
 
 			when adcDownSample =>
 				if dwnSampleCnt = nDwnSample then
@@ -212,13 +227,24 @@ begin
 		end case;
 	end process ctrlState_comb;
 
+	compute_avg : process (clk)
+	begin
+		if rising_edge(clk) then
+			mainsAvgMem_din(18 downto 0) <= mainsAvgMem_dout + "000" & adcAutoDc_data;
+			mainsAvgMem_wen <= adcAutoDC_dValid and mainsAvg_active;
+			mainsMinus_data <= adcAutoDc_data(18 downto 3) - mainsAvgMem_dout;
+			mainsMinus_wen <= adcAutoDC_dValid and not mainsAvg_active;
+		end if;
+	end process;
+
+
 	blkMem_mainsAvg : blkMem_mainsAvg
 		PORT MAP (
 			clka  => clk,
-			wea   => mainsAvg_we,
-			addra => mainsAvg_addr,
-			dina  => mainsAvg_din,
-			douta => mainsAvg_dout
+			wea   => mainsAvgMem_wen,
+			addra => adc_wstrbCnt(8 downto 0),
+			dina  => mainsAvgMem_din,
+			douta => mainsAvgMem_dout
 		);
 
 end architecture rtl;
