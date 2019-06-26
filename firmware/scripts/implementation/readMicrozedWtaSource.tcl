@@ -20,6 +20,7 @@ read_xdc -verbose $proj_sources_dir/constraints/tensionAnalyzerMicrozedPl.xdc
 #                 Xilinx IP
 # --------------------------------------------------------------------------
 # IP for scint timestamp
+read_ip $proj_sources_dir/cores/ipMicrozed/blkMem_mainsAvg/blkMem_mainsAvg.xci
 read_ip $proj_sources_dir/cores/ipMicrozed/clk_sysclk_mmcm/clk_sysclk_mmcm.xci
 read_ip $proj_sources_dir/cores/ipMicrozed/vio_ctrl/vio_ctrl.xci
 read_ip $proj_sources_dir/cores/ipMicrozed/fifo_autoDatacollection/fifo_autoDatacollection.xci

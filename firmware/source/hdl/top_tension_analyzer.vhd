@@ -10,20 +10,22 @@ use UNISIM.VCOMPONENTS.all;
 
 entity top_tension_analyzer is
   port (
-    led             : out std_logic_vector(3 downto 0);
+    led : out std_logic_vector(3 downto 0);
 
     acStimX200_obuf : out std_logic := '0';
     acStim_obuf     : out std_logic := '0';
 
-    V_p             : in  std_logic;
-    V_n             : in  std_logic;
-    Vaux0_n         : in  std_logic;
-    Vaux0_p         : in  std_logic;
-    Vaux8_n         : in  std_logic;
-    Vaux8_p         : in  std_logic;
-    
-    BB_CLK          : in  std_logic;
-    BB_CLK_EN       : out std_logic := '1'
+    V_p     : in std_logic;
+    V_n     : in std_logic;
+    Vaux0_n : in std_logic;
+    Vaux0_p : in std_logic;
+    Vaux8_n : in std_logic;
+    Vaux8_p : in std_logic;
+
+    mainsSquare : in std_logic;
+
+    BB_CLK    : in  std_logic;
+    BB_CLK_EN : out std_logic := '1'
   );
 
 end top_tension_analyzer;
@@ -189,36 +191,42 @@ architecture STRUCT of top_tension_analyzer is
   signal fifo_adcData_rdBusy : std_logic_vector(chanList'range)          := (others => '0');
 
   signal adcAutoDC_data    : std_logic_vector(15 downto 0) := (others => '0');
+  signal fifoAutoDC_din    : std_logic_vector(15 downto 0) := (others => '0');
   signal fifoAutoDC_wen    : std_logic                     := '0';
   signal fifoAutoDC_ren    : std_logic                     := '0';
   signal fifoAutoDC_dout   : std_logic_vector(15 downto 0) := (others => '0');
   signal fifoAutoDC_ff     : std_logic                     := '0';
   signal fifoAutoDC_rdBusy : std_logic                     := '0';
   signal fifoAutoDC_ef     : std_logic                     := '0';
-  signal adcAutoDc_af     : std_logic                     := '0';
+  signal adcAutoDc_af      : std_logic                     := '0';
 
-  signal ctrl_freqMin          : std_logic_vector(15 downto 0) := (others => '0');
-  signal ctrl_freqMax          : std_logic_vector(15 downto 0) := (others => '0');
-  signal ctrl_freqStep         : std_logic_vector(15 downto 0) := (others => '0');
-  signal ctrl_stimTime         : std_logic_vector(31 downto 0) := (others => '0');
-  signal ctrl_adcFifo_nSamples : std_logic_vector(15 downto 0) := (others => '0');
-  signal ctrl_ctrlStart        : std_logic                     := '0';
-  signal ctrl_freqSet          : unsigned(31 downto 0)         := (others => '0');
-  signal ctrl_acStim_enable    : std_logic                     := '0';
-  signal ctrl_acStim_nPeriod   : unsigned(31 downto 0)         := (others => '0');
-  signal ctrl_adcFifo_af       : std_logic                     := '0';
-  signal adcAutoDc_wen      : std_logic                     := '0';
-  signal adcAutoDc_headData : unsigned(15 downto 0)         := (others => '0');
-  signal adcAutoDc_chSel         : std_logic_vector(3 downto 0)  := (others => '0');
-  signal crtl_finish           : std_logic                     := '0';
-  signal ctrl_busy             : std_logic                     := '0';
-  signal ctrl_busy_del         : std_logic                     := '0';
-  signal adcHScale             : unsigned(4 downto 0)          := (others => '0');
-  signal adcAutoDC_dValid        : std_logic                     := '0';
+  signal ctrl_freqMin        : std_logic_vector(15 downto 0) := (others => '0');
+  signal ctrl_freqMax        : std_logic_vector(15 downto 0) := (others => '0');
+  signal ctrl_freqStep       : std_logic_vector(15 downto 0) := (others => '0');
+  signal ctrl_stimTime       : std_logic_vector(31 downto 0) := (others => '0');
+  signal ctrl_adc_nSamples   : std_logic_vector(15 downto 0) := (others => '0');
+  signal ctrl_ctrlStart      : std_logic                     := '0';
+  signal ctrl_freqSet        : unsigned(31 downto 0)         := (others => '0');
+  signal ctrl_acStim_enable  : std_logic                     := '0';
+  signal ctrl_acStim_nPeriod : unsigned(31 downto 0)         := (others => '0');
+  signal ctrl_adcFifo_af     : std_logic                     := '0';
+  signal adcAutoDc_wen       : std_logic                     := '0';
+  signal adcAutoDc_headData  : unsigned(15 downto 0)         := (others => '0');
+  signal adcAutoDc_chSel     : std_logic_vector(3 downto 0)  := (others => '0');
+  signal crtl_finish         : std_logic                     := '0';
+  signal ctrl_busy           : std_logic                     := '0';
+  signal ctrl_busy_del       : std_logic                     := '0';
+  signal adcHScale           : unsigned(4 downto 0)          := (others => '0');
+  signal adcAutoDC_dValid    : std_logic                     := '0';
 
-signal    mainsMinus_enable : std_logic             := '1';
-signal    mainsMinus_data: unsigned(15 downto 0) := (others => '0');
-signal    mainsMinus_wen : std_logic             := '0';
+  signal mainsSquare_del1, mainsSquare_del2 : std_logic := '0';
+  signal mainsTrig                          : std_logic := '0';
+
+  signal mainsMinus_enable : std_logic           := '1';
+  signal mainsMinus_data   : signed(15 downto 0) := (others => '0');
+  signal mainsMinus_wen    : std_logic           := '0';
+
+  signal mainsTrig_filter : unsigned(17 downto 0);
 
 begin
   led <= "0101";
@@ -314,11 +322,12 @@ begin
       acStimX200_periodCnt <= acStimX200_periodCnt +1;
       -- need the > to catch when the nPeriod decreases at the wrong time
       if acStim_periodCnt >= acStim_nPeriod then
-        acStim           <= not acStim;
+        acStim           <= (not acStim) and acStim_enable;
         acStim_periodCnt <= (acStim_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
 
       if acStimX200_periodCnt >= acStimX200_nPeriod then
+        -- dont use the enable here to keep the filter working
         acStimX200           <= not acStimX200;
         acStimX200_periodCnt <= (acStimX200_periodCnt'left downto 1 => '0', 0 => '1'); --x"000001";
       end if;
@@ -392,6 +401,21 @@ begin
       probe1    => m_axis_tdata,
       probe2    => m_axis_tid
     );
+
+  trigGen : process (sysclk100)
+  begin
+    if rising_edge(sysclk100) then
+      mainsSquare_del1 <= mainsSquare;
+      mainsSquare_del2 <= mainsSquare_del1;
+      mainsTrig        <= '1' when mainsTrig_filter = (mainsTrig_filter'left downto 1  => '0', 0 => '1') else '0';
+
+      if mainsSquare_del2 = '0' then
+        mainsTrig_filter <= (others =>'1');
+      elsif mainsTrig_filter /= (mainsTrig_filter'range => '0')  then
+        mainsTrig_filter <= mainsTrig_filter-1;
+      end if;
+    end if;
+  end process;
   ----------------------------------------------------------------------------
   -- Auto sweep the stimulus frequency
   ----------------------------------------------------------------------------
@@ -412,7 +436,7 @@ begin
       probe_out5              => ctrl_freqMax,
       probe_out6              => ctrl_freqStep,
       probe_out7              => ctrl_stimTime,
-      probe_out8              => ctrl_adcFifo_nSamples,
+      probe_out8              => ctrl_adc_nSamples,
       probe_out9(0)           => ctrl_ctrlStart,
       probe_out10             => adcAutoDc_chSel,
       unsigned(probe_out11)   => adcHScale
@@ -420,11 +444,11 @@ begin
 
   wtaController_inst : entity duneWta.wtaController
     port map (
-      freqMin          => unsigned(ctrl_freqMin),
-      freqMax          => unsigned(ctrl_freqMax),
-      freqStep         => unsigned(ctrl_freqStep),
-      stimTime         => unsigned(ctrl_stimTime),
-      adcFifo_nSamples => unsigned(ctrl_adcFifo_nSamples),
+      freqMin      => unsigned(ctrl_freqMin),
+      freqMax      => unsigned(ctrl_freqMax),
+      freqStep     => unsigned(ctrl_freqStep),
+      stimTime     => unsigned(ctrl_stimTime),
+      adc_nSamples => unsigned(ctrl_adc_nSamples),
 
       ctrlStart => ctrl_ctrlStart,
 
@@ -434,34 +458,42 @@ begin
       acStim_nPeriod => acStim_nPeriod,
       adcHScale      => adcHScale,
 
-      adcAutoDc_af    => adcAutoDc_af,
-      adcAutoDc_wen   => adcAutoDc_wen, -- controller enable the writing
-      adcAutoDc_dValid => adcAutoDC_dValid,   -- feedback  to the controller that the ADC has sampled the selected channel 
+      adcAutoDc_af     => adcAutoDc_af,
+      adcAutoDc_wen    => adcAutoDc_wen, -- controller enable the writing
+      adcAutoDc_data   => signed(adcAutoDc_data),
+      adcAutoDc_dValid => adcAutoDC_dValid, -- feedback  to the controller that the ADC has sampled the selected channel 
 
+      mainsAvg_nAvg      => x"08",
       adcAutoDc_headData => adcAutoDc_headData,
-      adcAutoDc_data => adcAutoDc_data,
 
-mainsMinus_enable  =>  mainsMinus_enable,
-mainsMinus_data => mainsMinus_data,
-mainsMinus_wen =>  mainsMinus_wen,
+      mainsTrig         => mainsTrig,
+      mainsMinus_enable => '1',--mainsMinus_enable,
+      mainsMinus_data   => mainsMinus_data,
+      mainsMinus_wen    => mainsMinus_wen,
 
       busy  => ctrl_busy,
       reset => not m_axis_resetn,
       clk   => sysclk100
     );
+
   readoutModeMuxing : process (sysclk100)
   begin
     if rising_edge(sysclk100) then
       -- Write header if MSb is 1,  ADC is 12 bits so there is no real data here
-      if adcAutoDc_headData(15) = '1' then
-        adcAutoDC_dValid <= '0';
-        fifoAutoDC_wen <= '1';
-        adcAutoDC_data <= std_logic_vector(adcAutoDc_headData);
-      elsif mainsMinus_enable
-        adcAutoDC_dValid <= fifo_adcData_wen(to_integer(unsigned(adcAutoDc_chSel)));
-        fifoAutoDC_wen <= (fifo_adcData_wen(to_integer(unsigned(adcAutoDc_chSel))) and adcAutoDc_wen);
-        adcAutoDC_data <= m_axis_tdata;
-      end if;
+       if adcAutoDc_headData(15) = '1' then
+         adcAutoDC_dValid <= '0';
+         fifoAutoDC_din <= std_logic_vector(adcAutoDc_headData);
+         fifoAutoDC_wen <= '1';
+       else
+          adcAutoDC_dValid <= fifo_adcData_wen(to_integer(unsigned(adcAutoDc_chSel)));
+          fifoAutoDC_din <= std_logic_vector(mainsMinus_data);
+--             fifoAutoDC_wen <= (fifo_adcData_wen(to_integer(unsigned(adcAutoDc_chSel))) and adcAutoDc_wen);
+          adcAutoDC_data   <= m_axis_tdata;
+          fifoAutoDC_wen <= mainsMinus_wen;
+       end if;
+
+      --fifoAutoDC_wen <= fifo_adcData_wen(to_integer(unsigned(adcAutoDc_chSel)));
+      --fifoAutoDC_din <= m_axis_tdata;
 
       -- start readout process when Programmable Pull
       fifoAutoDC_rdBusy <= (crtl_finish or adcAutoDc_af or fifoAutoDC_rdBusy) and
@@ -477,7 +509,7 @@ mainsMinus_wen =>  mainsMinus_wen,
     PORT MAP (
       clk       => sysclk100,
       srst      => not m_axis_resetn,
-      din       => adcAutoDC_data,
+      din       => fifoAutoDC_din,
       wr_en     => fifoAutoDC_wen,
       rd_en     => fifoAutoDC_ren,
       dout      => fifoAutoDC_dout,
@@ -511,13 +543,13 @@ mainsMinus_wen =>  mainsMinus_wen,
   ila_xadc_controller : ila_xadc
     PORT MAP (
       clk       => sysclk100,
-      probe0(0) => '0',
-      probe1    => std_logic_vector(ctrl_freqSet(15 downto 0)),
+      probe0(0) => mainsTrig,
+      probe1    => std_logic_vector(mainsMinus_data),
       probe2(0) => ctrl_acStim_enable,
       probe2(1) => adcAutoDc_wen,
       probe2(2) => fifoAutoDC_wen,
-      probe2(3) => '1',
-      probe2(4) => '1'
+      probe2(3) => mainsMinus_wen,
+      probe2(4) => ctrl_busy
     );
 
 end STRUCT;

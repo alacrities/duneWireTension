@@ -32,3 +32,6 @@ set_property PACKAGE_PIN K19 [get_ports led[2]]
 
 set_property IOSTANDARD LVCMOS18 [get_ports led[3]]
 set_property PACKAGE_PIN J19 [get_ports led[3]]
+
+set_property IOSTANDARD LVCMOS18 [get_ports mainsSquare]
+set_property PACKAGE_PIN L16 [get_ports mainsSquare]

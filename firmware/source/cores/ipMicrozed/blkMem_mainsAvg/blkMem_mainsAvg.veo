@@ -55,11 +55,13 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 blkMem_mainsAvg your_instance_name (
-  .clka(clka),    // input wire clka
-  .wea(wea),      // input wire [0 : 0] wea
-  .addra(addra),  // input wire [8 : 0] addra
-  .dina(dina),    // input wire [23 : 0] dina
-  .douta(douta)  // output wire [23 : 0] douta
+  .clka(clka),            // input wire clka
+  .rsta(rsta),            // input wire rsta
+  .wea(wea),              // input wire [0 : 0] wea
+  .addra(addra),          // input wire [8 : 0] addra
+  .dina(dina),            // input wire [23 : 0] dina
+  .douta(douta),          // output wire [23 : 0] douta
+  .rsta_busy(rsta_busy)  // output wire rsta_busy
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -55,10 +55,12 @@
 COMPONENT blkMem_mainsAvg
   PORT (
     clka : IN STD_LOGIC;
+    rsta : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
-    douta : OUT STD_LOGIC_VECTOR(23 DOWNTO 0)
+    douta : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+    rsta_busy : OUT STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -70,10 +72,12 @@ END COMPONENT;
 your_instance_name : blkMem_mainsAvg
   PORT MAP (
     clka => clka,
+    rsta => rsta,
     wea => wea,
     addra => addra,
     dina => dina,
-    douta => douta
+    douta => douta,
+    rsta_busy => rsta_busy
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 
