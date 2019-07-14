@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Sun Jul 14 18:51:00 2019
+-- Last update : Sun Jul 14 18:53:09 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ signal scanDone         : boolean   := false;
 signal mainsAvg_cnt     : unsigned(7 downto 0)          := (others => '0');
 signal mainsAvgMem_din  : signed(23 downto 0)           := (others => '0');
 signal mainsAvgMem_dout : std_logic_vector(23 downto 0) := (others => '0');
-signal mainsAvgMem_addr : std_logic_vector(15 downto 0) := (others => '0');
+signal mainsAvgMem_addr : unsigned(15 downto 0) := (others => '0');
 signal mainsAvgMem_wen  : std_logic                     := '0';
 
 signal mainsAvgMem_rsta      : std_logic := '0';
@@ -298,7 +298,7 @@ blkMem_mainsAvg_inst : blkMem_mainsAvg
 	PORT MAP (
 		clka      => clk,
 		wea(0)    => mainsAvgMem_wen,
-		addra     => mainsAvgMem_addr,
+		addra     => std_logic_vector(mainsAvgMem_addr),
 		dina      => std_logic_vector(mainsAvgMem_din),
 		douta     => mainsAvgMem_dout,
 		rsta      => mainsAvgMem_rsta,
