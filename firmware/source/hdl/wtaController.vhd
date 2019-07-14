@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Sun Jul 14 18:42:12 2019
+-- Last update : Sun Jul 14 18:51:00 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ begin
 			when adcReadout_s => -- count the number of samples that go into the readout FIFO
 				if adcAutoDC_dValid then
 					adc_wstrbCnt <= adc_wstrbCnt+1;
-					mainsAvgMem_addr <= mainsAvgMem_addr+1
+					mainsAvgMem_addr <= mainsAvgMem_addr+1;
 					dwnSampleCnt <= (others => '0'); -- reset the downsample count
 				end if;
 
@@ -147,7 +147,7 @@ begin
 					dwnSampleCnt <= dwnSampleCnt+1;
 					-- mainsAvgMem_addr follows adc_wstrbCnt 
 					-- and also gets incremented in down-sample
-					mainsAvgMem_addr <= mainsAvgMem_addr+1
+					mainsAvgMem_addr <= mainsAvgMem_addr+1;
 				end if;
 
 			when others =>
