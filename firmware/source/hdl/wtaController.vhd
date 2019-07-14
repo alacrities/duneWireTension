@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Sun Jul 14 18:53:09 2019
+-- Last update : Sun Jul 14 19:35:40 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -94,6 +94,7 @@ signal mainsAvgMem_din  : signed(23 downto 0)           := (others => '0');
 signal mainsAvgMem_dout : std_logic_vector(23 downto 0) := (others => '0');
 signal mainsAvgMem_addr : unsigned(15 downto 0) := (others => '0');
 signal mainsAvgMem_wen  : std_logic                     := '0';
+signal mainsAvgMem_wstrb  : std_logic                     := '0';
 
 signal mainsAvgMem_rsta      : std_logic := '0';
 signal mainsAvgMem_rsta_busy : std_logic := '0';
@@ -163,6 +164,7 @@ begin
 	mainsAvg_active        <= '1' when mainsMinus_enable = '1' and (mainsAvg_cnt < mainsAvg_nAvg);
 	ctrlState_next         <= ctrlState;
 	adcAutoDc_wen          <= '0';
+	mainsAvgMem_wen          <= '0';
 	adcAutoDc_headData(15) <= '0';
 	busy                   <= '1';
 	mainsAvgMem_rsta       <= '0';
@@ -213,6 +215,7 @@ begin
 
 		when adcReadout_s =>
 			adcAutoDc_wen <= '1';       --0'when mainsAvg_active else '1';
+			mainsAvgMem_wen <= '1';       --0'when mainsAvg_active else '1';
 			if adc_nSamplesDone then    --we have all of the contiguous samples
 				if mainsAvg_active then -- we have finished sampling this freq and can move on
 					ctrlState_next <= mainsAvgInc_s;
@@ -228,6 +231,7 @@ begin
 			end if;
 
 		when mainsAvgInc_s =>
+			mainsAvgMem_wen <= '1';       --0'when mainsAvg_active else '1';
 			-- update the number of averaging loops
 			-- the mainsAvgLoop_s state needs the updated value
 			ctrlState_next <= mainsAvgLoop_s;
@@ -263,7 +267,7 @@ begin
 		--mainsAvgMem_wen <= adcAutoDc_wen and adcAutoDC_dValid and mainsAvg_active;
 	
 		-- collect samples once for all frequencies 
-		mainsAvgMem_wen <= adcAutoDC_dValid and mainsAvg_active;
+		mainsAvgMem_wstrb <= mainsAvgMem_wen and adcAutoDC_dValid and mainsAvg_active;
 		--mainsAvgMem_addr  <= std_logic_vector(adc_wstrbCnt(8 downto 0));
 
 		-- mainsMinus_data <= adcAutoDc_data - mainsAvgMem_dout(18 downto 3);
@@ -297,8 +301,10 @@ end process;
 blkMem_mainsAvg_inst : blkMem_mainsAvg
 	PORT MAP (
 		clka      => clk,
-		wea(0)    => mainsAvgMem_wen,
+		wea(0)    => mainsAvgMem_wstrb,
 		addra     => std_logic_vector(mainsAvgMem_addr),
+		--addra(8 downto 0)     => std_logic_vector(adc_wstrbCnt(8 downto 0)),
+		--addra(15 downto 9)     => (others  =>  '0'),
 		dina      => std_logic_vector(mainsAvgMem_din),
 		douta     => mainsAvgMem_dout,
 		rsta      => mainsAvgMem_rsta,
