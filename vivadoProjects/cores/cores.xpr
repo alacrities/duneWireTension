@@ -170,6 +170,7 @@
     <FileSet Name="ila_xadc_big" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_xadc_big">
       <File Path="$PPRDIR/../../firmware/source/cores/ip/ila_xadc_big/ila_xadc_big.xci">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -249,12 +250,11 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="fifo_adcData_synth_1" Type="Ft3:Synth" SrcSet="fifo_adcData" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/fifo_adcData_synth_1" IncludeInArchive="true">
+    <Run Id="fifo_adcData_synth_1" Type="Ft3:Synth" SrcSet="fifo_adcData" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_adcData" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
@@ -267,12 +267,11 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="mult_U16_U16_32_P2_synth_1" Type="Ft3:Synth" SrcSet="mult_U16_U16_32_P2" Part="xc7vx485tffg1761-2" ConstrsSet="mult_U16_U16_32_P2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/mult_U16_U16_32_P2_synth_1" IncludeInArchive="true">
+    <Run Id="mult_U16_U16_32_P2_synth_1" Type="Ft3:Synth" SrcSet="mult_U16_U16_32_P2" Part="xc7vx485tffg1761-2" ConstrsSet="mult_U16_U16_32_P2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
@@ -285,12 +284,11 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="ila_xadc_big_synth_1" Type="Ft3:Synth" SrcSet="ila_xadc_big" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc_big" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ila_xadc_big_synth_1" IncludeInArchive="true">
+    <Run Id="ila_xadc_big_synth_1" Type="Ft3:Synth" SrcSet="ila_xadc_big" Part="xc7vx485tffg1761-2" ConstrsSet="ila_xadc_big" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
@@ -303,12 +301,11 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="fifo_autoDatacollection_synth_1" Type="Ft3:Synth" SrcSet="fifo_autoDatacollection" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_autoDatacollection" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/fifo_autoDatacollection_synth_1" IncludeInArchive="true">
+    <Run Id="fifo_autoDatacollection_synth_1" Type="Ft3:Synth" SrcSet="fifo_autoDatacollection" Part="xc7vx485tffg1761-2" ConstrsSet="fifo_autoDatacollection" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>

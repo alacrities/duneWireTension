@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Wed Jun 26 03:41:44 2019
+-- Last update : Sun Jul 14 18:42:12 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ architecture rtl of wtaController is
 			clka      : IN  STD_LOGIC;
 			rsta      : IN  STD_LOGIC;
 			wea       : IN  STD_LOGIC_VECTOR(0 DOWNTO 0);
-			addra     : IN  STD_LOGIC_VECTOR(8 DOWNTO 0);
+			addra     : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			dina      : IN  STD_LOGIC_VECTOR(23 DOWNTO 0);
 			douta     : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
 			rsta_busy : OUT STD_LOGIC
@@ -92,7 +92,7 @@ signal scanDone         : boolean   := false;
 signal mainsAvg_cnt     : unsigned(7 downto 0)          := (others => '0');
 signal mainsAvgMem_din  : signed(23 downto 0)           := (others => '0');
 signal mainsAvgMem_dout : std_logic_vector(23 downto 0) := (others => '0');
-signal mainsAvgMem_addr : std_logic_vector(8 downto 0) := (others => '0');
+signal mainsAvgMem_addr : std_logic_vector(15 downto 0) := (others => '0');
 signal mainsAvgMem_wen  : std_logic                     := '0';
 
 signal mainsAvgMem_rsta      : std_logic := '0';
@@ -121,6 +121,7 @@ begin
 				               -- the freqSet will need ~4 clock cycles to update the period counter
 				freqSet      <= freqSet+freqStep;
 				adc_wstrbCnt <= (others => '0');
+				mainsAvgMem_addr <= (others => '0');
 				--change to reset only on freq change
 				mainsAvg_cnt <= (others => '0');
 
@@ -131,18 +132,22 @@ begin
 			when adcReadout_s => -- count the number of samples that go into the readout FIFO
 				if adcAutoDC_dValid then
 					adc_wstrbCnt <= adc_wstrbCnt+1;
+					mainsAvgMem_addr <= mainsAvgMem_addr+1
 					dwnSampleCnt <= (others => '0'); -- reset the downsample count
 				end if;
 
 			when mainsAvgInc_s => -- count the number of samples that go into the readout FIFO
 				mainsAvg_cnt <= mainsAvg_cnt+1;
 				adc_wstrbCnt <= (others => '0'); -- reset the ADC sample counter
-
+				mainsAvgMem_addr <= (others => '0');
 			when mainsAvgLoop_s =>
 
 			when adcDownSample_s => -- count the down sample
 				if adcAutoDC_dValid then
 					dwnSampleCnt <= dwnSampleCnt+1;
+					-- mainsAvgMem_addr follows adc_wstrbCnt 
+					-- and also gets incremented in down-sample
+					mainsAvgMem_addr <= mainsAvgMem_addr+1
 				end if;
 
 			when others =>
@@ -255,8 +260,12 @@ begin
 	end if;
 		--mainsAvgMem_din <= signed(mainsAvgMem_dout) + adcAutoDc_data;
 		--mainsAvgMem_wen <= adcAutoDC_dValid and mainsAvg_active;
-		mainsAvgMem_wen <= adcAutoDc_wen and adcAutoDC_dValid and mainsAvg_active;
-		mainsAvgMem_addr  <= std_logic_vector(adc_wstrbCnt(8 downto 0));
+		--mainsAvgMem_wen <= adcAutoDc_wen and adcAutoDC_dValid and mainsAvg_active;
+	
+		-- collect samples once for all frequencies 
+		mainsAvgMem_wen <= adcAutoDC_dValid and mainsAvg_active;
+		--mainsAvgMem_addr  <= std_logic_vector(adc_wstrbCnt(8 downto 0));
+
 		-- mainsMinus_data <= adcAutoDc_data - mainsAvgMem_dout(18 downto 3);
 		-- temp just watch avg build.
 		-- mainsMinus_wen <= adcAutoDC_dValid and not mainsAvg_active and adcAutoDc_wen;
