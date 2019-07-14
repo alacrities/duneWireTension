@@ -57,7 +57,7 @@ COMPONENT blkMem_mainsAvg
     clka : IN STD_LOGIC;
     rsta : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
     rsta_busy : OUT STD_LOGIC
