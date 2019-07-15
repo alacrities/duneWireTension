@@ -6,7 +6,7 @@
 -- Author      : User Name <user.email@user.company.com>
 -- Company     : User Company Name
 -- Created     : Thu May  2 11:04:21 2019
--- Last update : Sun Jul 14 19:35:40 2019
+-- Last update : Sun Jul 14 19:50:56 2019
 -- Platform    : Default Part Number
 -- Standard    : <VHDL-2008 | VHDL-2002 | VHDL-1993 | VHDL-1987>
 --------------------------------------------------------------------------------
@@ -117,14 +117,14 @@ begin
 				ctrlStart_del <= ctrlStart;
 				--turn off stimulus 
 				acStim_enable <= '0';
+				--change to reset only on startup
+				mainsAvg_cnt <= (others => '0');
 
 			when stimPrep_s => -- increment frequency and reset counters
 				               -- the freqSet will need ~4 clock cycles to update the period counter
 				freqSet      <= freqSet+freqStep;
 				adc_wstrbCnt <= (others => '0');
 				mainsAvgMem_addr <= (others => '0');
-				--change to reset only on freq change
-				mainsAvg_cnt <= (others => '0');
 
 			when stimRun_s => -- count the number of clock cycles we stim before ADC readout
 				stimTimeCnt   <= stimTimeCnt+1;
